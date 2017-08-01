@@ -1,0 +1,3 @@
+<agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" [fitBounds]="latlngBounds">
+  <agm-circle *ngFor="let trashcan of trashcans" [radius]="2" [fillOpacity]="1" [fillColor]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long"></agm-circle >
+</agm-map>
