@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
 import {MapsAPILoader} from '@agm/core';
 
+import {Trashcan } from '../_interfaces/trashcan.model';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -10,10 +12,9 @@ import {MapsAPILoader} from '@agm/core';
 export class MapComponent implements OnInit {
   lat = 33.81187;
   long = -117.91867;
-  latlngBounds;
-  zoom = 20;
-  trashcans: any;
-  bounds: any;
+  latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
+  zoom = 20; // Zoom niveau voor de kaart.
+  trashcans: Trashcan[] = [];
 
   constructor(private dataService: DataService, private mapsAPILoader: MapsAPILoader) {
   }
@@ -32,6 +33,7 @@ export class MapComponent implements OnInit {
               this.latlngBounds.extend(new window['google'].maps.LatLng(location.lat, location.long));
             });
           });
+
           console.log(this.trashcans);
         },
         error => {

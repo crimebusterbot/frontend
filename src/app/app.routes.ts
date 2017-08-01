@@ -7,6 +7,7 @@ import {StatisticsComponent} from './statistics/statistics.component';
 export const routes: Routes = [
   {path: 'map', component: MapComponent},
   {path: 'statistics', component: StatisticsComponent},
+  {path: '', redirectTo: '/map', pathMatch: 'full'},
   {path: '**', component: MapComponent}
 ];
 
