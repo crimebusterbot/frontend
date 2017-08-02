@@ -4,6 +4,7 @@ import {HttpModule} from '@angular/http';
 import {Routing} from './app.routes';
 
 import {AgmCoreModule} from '@agm/core';
+import {ChartsModule} from 'ng2-charts';
 
 import {AppComponent} from './app.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
@@ -12,7 +13,8 @@ import {MapComponent} from './map/map.component';
 
 import {DataService} from './_services/data.service';
 import {LogService} from './_services/log.service';
-import {StatisticsComponent} from './statistics/statistics.component';
+import {AnalyticsComponent} from './analytics/analytics.component';
+import {AveragetrashComponent} from './charts/averagetrash/averagetrash.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +22,12 @@ import {StatisticsComponent} from './statistics/statistics.component';
     SidebarComponent,
     TopmenuComponent,
     MapComponent,
-    StatisticsComponent
+    AnalyticsComponent,
+    AveragetrashComponent
   ],
   imports: [
     BrowserModule,
+    ChartsModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyAQGPLoSMSsvmkhObuh6ja2uJNeRJXWiVI'
     }),

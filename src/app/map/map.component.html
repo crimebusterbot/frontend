@@ -1,3 +1,7 @@
-<agm-map [latitude]="lat" [longitude]="long" [zoom]="zoom" [fitBounds]="latlngBounds">
-  <agm-circle *ngFor="let trashcan of trashcans" [radius]="2" [fillOpacity]="1" [fillColor]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long"></agm-circle >
+<agm-map [zoom]="zoom" [fitBounds]="latlngBounds">
+  <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" (markerClick)="handleCanClick($event, trashcan.id)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
+    <agm-info-window>
+      Trashcan #{{trashcan.id}}
+    </agm-info-window>
+  </agm-marker >
 </agm-map>

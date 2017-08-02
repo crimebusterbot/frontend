@@ -1,3 +1,5 @@
+@import "../../assets/scss/_variables";
+
 aside {
   display: flex;
   flex-direction: column;
@@ -30,7 +32,7 @@ aside {
     text-decoration: none;
 
     &.active {
-      background-color: lightgray;
+      background-color: $button-color;
     }
 
     &:hover {

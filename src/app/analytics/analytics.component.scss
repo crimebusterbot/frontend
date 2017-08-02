@@ -7,13 +7,14 @@
 }
 
 .graph-full, .graph-half {
-  height: 200px;
+  height: 250px;
   background-color: #eeeeee;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  padding: 20px;
 
   p {
     color: #959595;
@@ -26,5 +27,5 @@
 }
 
 .graph-half {
-  width: calc(50% - 10px);
+  width: calc(50% - 50px);
 }

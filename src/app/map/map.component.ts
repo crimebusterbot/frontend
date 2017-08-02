@@ -1,22 +1,26 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
-import {MapsAPILoader} from '@agm/core';
+import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager} from '@agm/core';
 
-import {Trashcan } from '../_interfaces/trashcan.model';
+import {Trashcan} from '../_interfaces/trashcan.model';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.scss']
+  styleUrls: ['./map.component.scss'],
+  providers: [InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager]
 })
 export class MapComponent implements OnInit {
-  lat = 33.81187;
-  long = -117.91867;
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
+  infoWindows = [];
 
-  constructor(private dataService: DataService, private mapsAPILoader: MapsAPILoader) {
+  infoWindowContent = {
+    title: ''
+  };
+
+  constructor(private dataService: DataService, private mapsAPILoader: MapsAPILoader, private infoWindowManager: InfoWindowManager) {
   }
 
   ngOnInit() {
@@ -33,8 +37,6 @@ export class MapComponent implements OnInit {
               this.latlngBounds.extend(new window['google'].maps.LatLng(location.lat, location.long));
             });
           });
-
-          console.log(this.trashcans);
         },
         error => {
           console.log(error);
@@ -42,14 +44,21 @@ export class MapComponent implements OnInit {
       );
   }
 
+  // De functie die uitgevoerd wordt als er op een prullenbak geklikt wordt.
+  // Geeft in het event de long en lat mee, en de id van de prullenbak.
+  handleCanClick(event, id) {
+    this.infoWindows.push({lat: event.coords.lat, long: event.coords.lng, isOpen: true, id: id});
+    console.log(event);
+  }
+
   // Geeft een CSS kleur terug op basis van het vullings percentage
   calculateStatus(percentage) {
     if (percentage < 40) {
-      return 'green';
+      return './../assets/images/green-trashcan.png';
     } else if (percentage > 40 && percentage < 80) {
-      return 'orange';
+      return './../assets/images/orange-trashcan.png';
     } else {
-      return 'red';
+      return './../assets/images/red-trashcan.png';
     }
   }
 }
