@@ -1,5 +1,5 @@
 <agm-map [zoom]="zoom" [fitBounds]="latlngBounds">
-  <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" (markerClick)="handleCanClick($event, trashcan.id)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
+  <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
     <agm-info-window>
       Trashcan #{{trashcan.id}}
     </agm-info-window>

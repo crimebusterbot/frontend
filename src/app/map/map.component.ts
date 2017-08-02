@@ -44,13 +44,6 @@ export class MapComponent implements OnInit {
       );
   }
 
-  // De functie die uitgevoerd wordt als er op een prullenbak geklikt wordt.
-  // Geeft in het event de long en lat mee, en de id van de prullenbak.
-  handleCanClick(event, id) {
-    this.infoWindows.push({lat: event.coords.lat, long: event.coords.lng, isOpen: true, id: id});
-    console.log(event);
-  }
-
   // Geeft een CSS kleur terug op basis van het vullings percentage
   calculateStatus(percentage) {
     if (percentage < 40) {
