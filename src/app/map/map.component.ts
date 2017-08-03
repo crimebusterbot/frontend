@@ -11,6 +11,7 @@ import {Trashcan} from '../_interfaces/trashcan.model';
   providers: [InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager]
 })
 export class MapComponent implements OnInit {
+  loading: boolean;
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
@@ -24,11 +25,12 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.loading = true;
     this.dataService.getTrashcans()
       .subscribe(
         trashcans => {
           this.trashcans = trashcans;
+          this.loading = false;
 
           // We laden een object dat het centrum van de verschillende prullenbakken berekend.
           this.mapsAPILoader.load().then(() => {

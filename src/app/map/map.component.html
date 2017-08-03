@@ -1,7 +1,21 @@
-<agm-map [zoom]="zoom" [fitBounds]="latlngBounds">
+<agm-map [zoom]="zoom" [fitBounds]="latlngBounds" *ngIf="!loading && trashcans.length > 0">
   <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
     <agm-info-window>
-      Trashcan #{{trashcan.id}}
+      <div class="trashcan-info">
+        <h3>Trashcan #{{trashcan.id}}</h3>
+
+        <p>{{trashcan.filled_up}}% full</p>
+
+        <a class="trashcan-info-button" routerLink="/map/{{trashcan.id}}">More details</a>
+      </div>
     </agm-info-window>
   </agm-marker >
 </agm-map>
+
+<div class="map-information" *ngIf="!loading && trashcans.length === 0">
+  <p>No trashcans found.</p>
+</div>
+
+<div class="map-information" *ngIf="loading">
+  <p>Loading data for map...</p>
+</div>

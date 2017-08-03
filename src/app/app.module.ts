@@ -15,6 +15,7 @@ import {DataService} from './_services/data.service';
 import {LogService} from './_services/log.service';
 import {AnalyticsComponent} from './analytics/analytics.component';
 import {AveragetrashComponent} from './charts/averagetrash/averagetrash.component';
+import { DetailsComponent } from './details/details.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import {AveragetrashComponent} from './charts/averagetrash/averagetrash.componen
     TopmenuComponent,
     MapComponent,
     AnalyticsComponent,
-    AveragetrashComponent
+    AveragetrashComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
