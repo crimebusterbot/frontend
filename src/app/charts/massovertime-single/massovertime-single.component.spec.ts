@@ -1,25 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MapComponent } from './map.component';
+import { AveragetrashComponent } from './averagetrash.component';
 import {NO_ERRORS_SCHEMA} from '@angular/core';
-import {MapsAPILoader} from '@agm/core';
-import {DataService} from '../_services/data.service';
+import {DataService} from '../../_services/data.service';
 
-describe('MapComponent', () => {
-  let component: MapComponent;
-  let fixture: ComponentFixture<MapComponent>;
+describe('AveragetrashComponent', () => {
+  let component: AveragetrashComponent;
+  let fixture: ComponentFixture<AveragetrashComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MapComponent ],
+      declarations: [ AveragetrashComponent ],
       schemas: [ NO_ERRORS_SCHEMA ],
-      providers: [MapsAPILoader, DataService]
+      providers: [DataService]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MapComponent);
+    fixture = TestBed.createComponent(AveragetrashComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

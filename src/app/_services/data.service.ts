@@ -21,4 +21,25 @@ export class DataService {
     return this.http.get(url + '/' + id)
       .map(res => res.json());
   }
+
+  getTrashOverTime(id) {
+    const url = 'https://smarttrash.herokuapp.com/analytics/filledUp';
+
+    return this.http.get(url + '/' + id)
+      .map(res => res.json());
+  }
+
+  getHumidityOverTime(id) {
+    const url = 'https://smarttrash.herokuapp.com/analytics/humidity';
+
+    return this.http.get(url + '/' + id)
+      .map(res => res.json());
+  }
+
+  getMassOverTime(id) {
+    const url = 'https://smarttrash.herokuapp.com/analytics/mass';
+
+    return this.http.get(url + '/' + id)
+      .map(res => res.json());
+  }
 }

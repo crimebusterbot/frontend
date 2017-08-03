@@ -1,29 +1,5 @@
 @import "../../assets/scss/_variables";
 
-@keyframes left-arm-move {
-  25% {
-    transform-origin: 14.1px 38.9px;
-    transform: rotate(10deg);
-  }
-
-  75% {
-    transform-origin: 14.1px 38.9px;
-    transform: rotate(-10deg);
-  }
-}
-
-@keyframes right-arm-move {
-  25% {
-    transform-origin: 112.6px 38.9px;
-    transform: rotate(-10deg);
-  }
-
-  75% {
-    transform-origin: 112.6px 38.9px;
-    transform: rotate(10deg);
-  }
-}
-
 aside {
   display: flex;
   flex-direction: column;
@@ -36,16 +12,6 @@ aside {
     align-self: center;
     padding-top: 50px;
     width: 125px;
-
-    &:hover {
-      .left-arm-piece {
-        animation: left-arm-move 1s infinite;
-      }
-
-      .right-arm-piece {
-        animation: right-arm-move 1s infinite;
-      }
-    }
   }
 
   .sub-title {
@@ -71,7 +37,7 @@ aside {
     }
 
     &:hover {
-      background-color: #f4f4f4;
+      background: linear-gradient(45deg, #f4f4f4, #ececec);
     }
 
     .menu-item-content {

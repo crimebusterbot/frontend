@@ -1,8 +1,9 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
 import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager} from '@agm/core';
 
 import {Trashcan} from '../_interfaces/trashcan.model';
+import {LogService} from '../_services/log.service';
 
 @Component({
   selector: 'app-map',
@@ -10,23 +11,25 @@ import {Trashcan} from '../_interfaces/trashcan.model';
   styleUrls: ['./map.component.scss'],
   providers: [InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager]
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, OnDestroy {
   loading: boolean;
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
-  infoWindows = [];
+  sub: any;
 
   infoWindowContent = {
     title: ''
   };
 
-  constructor(private dataService: DataService, private mapsAPILoader: MapsAPILoader, private infoWindowManager: InfoWindowManager) {
+  constructor(private dataService: DataService,
+              private mapsAPILoader: MapsAPILoader,
+              private logService: LogService) {
   }
 
   ngOnInit() {
     this.loading = true;
-    this.dataService.getTrashcans()
+    this.sub = this.dataService.getTrashcans()
       .subscribe(
         trashcans => {
           this.trashcans = trashcans;
@@ -41,7 +44,7 @@ export class MapComponent implements OnInit {
           });
         },
         error => {
-          console.log(error);
+          this.logService.log(error);
         }
       );
   }
@@ -55,5 +58,9 @@ export class MapComponent implements OnInit {
     } else {
       return './../assets/images/red-trashcan.png';
     }
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

@@ -14,8 +14,10 @@ import {MapComponent} from './map/map.component';
 import {DataService} from './_services/data.service';
 import {LogService} from './_services/log.service';
 import {AnalyticsComponent} from './analytics/analytics.component';
-import {AveragetrashComponent} from './charts/averagetrash/averagetrash.component';
-import { DetailsComponent } from './details/details.component';
+import {TrashOverTimeSingleComponent} from './charts/trashovertime-single/trashovertime-single.component';
+import {DetailsComponent} from './details/details.component';
+import {HumidityOverTimeSingleComponent} from './charts/humidityovertime-single/humidityovertime-single.component';
+import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { DetailsComponent } from './details/details.component';
     TopmenuComponent,
     MapComponent,
     AnalyticsComponent,
-    AveragetrashComponent,
+    TrashOverTimeSingleComponent,
+    HumidityOverTimeSingleComponent,
+    MassOverTimeSingleComponent,
     DetailsComponent
   ],
   imports: [
