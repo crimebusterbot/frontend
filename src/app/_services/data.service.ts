@@ -29,6 +29,13 @@ export class DataService {
       .map(res => res.json());
   }
 
+  getTotalTrashOverTime() {
+    const url = 'https://smarttrash.herokuapp.com/analytics/totalFilledUp';
+
+    return this.http.get(url)
+      .map(res => res.json());
+  }
+
   getHumidityOverTime(id) {
     const url = 'https://smarttrash.herokuapp.com/analytics/humidity';
 

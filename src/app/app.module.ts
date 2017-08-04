@@ -15,6 +15,7 @@ import {DataService} from './_services/data.service';
 import {LogService} from './_services/log.service';
 import {AnalyticsComponent} from './analytics/analytics.component';
 import {TrashOverTimeSingleComponent} from './charts/trashovertime-single/trashovertime-single.component';
+import {TrashOverTimeComponent} from './charts/trashovertime/trashovertime.component';
 import {DetailsComponent} from './details/details.component';
 import {HumidityOverTimeSingleComponent} from './charts/humidityovertime-single/humidityovertime-single.component';
 import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
@@ -27,6 +28,7 @@ import {MassOverTimeSingleComponent} from './charts/massovertime-single/massover
     MapComponent,
     AnalyticsComponent,
     TrashOverTimeSingleComponent,
+    TrashOverTimeComponent,
     HumidityOverTimeSingleComponent,
     MassOverTimeSingleComponent,
     DetailsComponent
