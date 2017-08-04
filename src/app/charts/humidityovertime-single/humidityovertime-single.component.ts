@@ -41,12 +41,13 @@ export class HumidityOverTimeSingleComponent implements OnInit, OnDestroy {
           this.loading = false;
 
           this.graphData.forEach((dataPoint) => {
-            this.lineChartData[0].data.push(dataPoint.filled_up);
+            this.lineChartData[0].data.push(dataPoint.humidity);
             this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
           });
         },
         error => {
           this.logService.log(error);
+
         }
       );
   }

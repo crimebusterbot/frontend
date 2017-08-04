@@ -18,7 +18,7 @@ export class MassOverTimeSingleComponent implements OnInit, OnDestroy {
   public lineChartData: Array<any> = [
     {
       data: [],
-      label: 'Humidity over time'
+      label: 'Mass over time'
     }
   ];
 
@@ -38,10 +38,11 @@ export class MassOverTimeSingleComponent implements OnInit, OnDestroy {
       .subscribe(
         graphData => {
           this.graphData = graphData;
+          this.logService.log(this.graphData);
           this.loading = false;
 
           this.graphData.forEach((dataPoint) => {
-            this.lineChartData[0].data.push(dataPoint.filled_up);
+            this.lineChartData[0].data.push(dataPoint.mass);
             this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
           });
         },
