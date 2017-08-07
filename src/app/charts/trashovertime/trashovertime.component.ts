@@ -26,7 +26,14 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
   public lineChartType = 'line';
   public lineChartOptions: any = {
     responsive: true,
-    maintainAspectRatio: false
+    maintainAspectRatio: false,
+    scales: {
+      yAxes: [{
+          ticks: {
+              beginAtZero: true
+          }
+      }]
+    }
   };
 
   constructor(private dataService: DataService, private datePipe: DatePipe, private logService: LogService) { }
