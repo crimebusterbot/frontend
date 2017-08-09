@@ -1,0 +1,27 @@
+@import "../../assets/scss/_variables";
+
+.map-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: calc(100% - 60px);
+  width: 100%;
+  transition: .4s ease-in;
+  color: #3b3b3b;
+}
+
+agm-map {
+  height: calc(100% - 60px);
+  width: 100%;
+}
+
+.trashcan-info-button {
+  background-color: $button-color;
+  color: #3b3b3b;
+  border-radius: 4px;
+  padding: 10px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+}

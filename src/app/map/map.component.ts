@@ -18,10 +18,6 @@ export class MapComponent implements OnInit, OnDestroy {
   trashcans: Trashcan[] = [];
   sub: any;
 
-  infoWindowContent = {
-    title: ''
-  };
-
   constructor(private dataService: DataService,
               private mapsAPILoader: MapsAPILoader,
               private logService: LogService) {
