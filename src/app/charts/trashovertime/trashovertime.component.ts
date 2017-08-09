@@ -17,7 +17,7 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
   public lineChartData: Array<any> = [
     {
       data: [],
-      label: 'Volume of trash over time'
+      label: 'Average Volume of trash over time'
     }
   ];
 
