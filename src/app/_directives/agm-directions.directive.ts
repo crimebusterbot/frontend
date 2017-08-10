@@ -26,7 +26,7 @@ export class DirectionsMapDirective implements OnInit {
         origin: {lat: this.origin.latitude, lng: this.origin.longitude},
         destination: {lat: this.destination.latitude, lng: this.destination.longitude},
         waypoints: this.waypoints,
-        optimizeWaypoints: true,
+        optimizeWaypoints: false,
         travelMode: 'WALKING'
       }, function (response, status) {
         if (status === 'OK') {

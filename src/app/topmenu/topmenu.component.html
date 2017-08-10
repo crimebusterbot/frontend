@@ -1,27 +1,33 @@
-<header class="desktop">
-  <a routerLink="/map" class="logout">
-    <p>Log out</p>
-    <i class="fa fa-sign-out"></i>
-  </a>
-</header>
+<div class="topmenu-container">
+  <!-- De desktop header -->
+  <header class="desktop">
+    <a routerLink="/map" class="logout">
+      <p>Log out</p>
+      <i class="fa fa-sign-out"></i>
+    </a>
+  </header>
 
-<header class="mobile">
-  <a routerLink="/map" class="logo">
-    <img src="./../assets/images/smart-trashcan-logo.svg" alt="Smart Trashcan" width="50">
-  </a>
+  <!-- De mobiele header -->
+  <header class="mobile">
+    <a routerLink="/map" class="logo">
+      <img src="./../assets/images/smart-trashcan-logo.svg" alt="Smart Trashcan" width="50">
+    </a>
 
-  <p class="sub-title">
-    trash management
-  </p>
+    <p class="sub-title">
+      trash management
+    </p>
 
-  <a class="menu" (click)="openNavigation()">
-    <p>menu</p>
-    <i class="fa fa-bars" aria-hidden="true"></i>
-  </a>
-</header>
+    <a class="menu" (click)="openNavigation()">
+      <p>menu</p>
+      <i class="fa fa-bars" aria-hidden="true"></i>
+    </a>
+  </header>
+</div>
 
+<!-- De achtergrond voor het mobiele menu -->
 <div class="menuOverlay" [class.opened]="opened" (click)="closeNavigation()"></div>
 
+<!-- De sidebar die in beeld komt als het menu geopend wordt in mobiele weergave -->
 <div class="sidenav" [class.opened]="opened">
   <a class="close-menu" (click)="closeNavigation()">
     <i class="fa fa-times" aria-hidden="true"></i>

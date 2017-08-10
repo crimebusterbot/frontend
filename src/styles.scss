@@ -82,10 +82,12 @@ body {
 
 .sidebar {
   width: 20%;
+  height: 100%;
 }
 
 .main-content {
   width: 80%;
+  margin-top: 60px;
   flex-direction: column;
 }
 

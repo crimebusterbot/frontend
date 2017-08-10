@@ -1,10 +1,19 @@
 @import "../../assets/scss/_variables";
 
 aside {
+  height: 100%;
+  width: 20%; /* Omdat het een fixed element is moet je weer het juiste percentage meegeven. */
+  position: fixed;
+  top: 0;
+  z-index: 3;
+}
+
+.sidebar-container {
   display: flex;
   flex-direction: column;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   height: 100%;
+  width: 100%;
   z-index: 3;
   position: relative;
 
