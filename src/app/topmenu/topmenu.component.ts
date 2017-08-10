@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopmenuComponent implements OnInit {
 
+  opened = false;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  openNavigation() {
+    this.opened = true;
+  }
+
+  closeNavigation() {
+    this.opened = false;
   }
 
 }

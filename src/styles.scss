@@ -77,6 +77,17 @@ body {
   flex-direction: column;
 }
 
+@media only screen and (max-width: 767px) {
+  .main-content {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+}
+
+
 app-trashovertime-single, app-humidityovertime-single, app-massovertime-single, app-trashovertime {
   width: 100%;
   height: 100%;

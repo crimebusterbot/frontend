@@ -3,12 +3,13 @@
 header {
   height: 60px;
   background-color: white;
-  box-shadow: 8px 0 10px 0 rgba(0,0,0,0.3);
+  box-shadow: 8px 0 10px 0 rgba(0, 0, 0, 0.3);
   z-index: 2;
   position: relative;
-  display: flex;
+}
 
-  a {
+.desktop {
+  .logout {
     margin-left: auto;
     height: 100%;
     padding: 0 20px;
@@ -33,5 +34,144 @@ header {
     &:hover {
       background: linear-gradient(45deg, #f4f4f4, #ececec);
     }
+  }
+}
+
+.mobile {
+  align-items: center;
+  color: #3b3b3b;
+
+  .logo {
+    padding-left: 15px;
+    padding-top: 6px;
+  }
+
+  .sub-title {
+    padding-left: 15px;
+    font-size: 14px;
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: row;
+    margin-left: auto;
+    padding: 0 15px;
+    height: 100%;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $button-color;
+    }
+
+    p {
+      padding-right: 7px;
+      margin: 0;
+    }
+
+    i {
+      font-size: 25px;
+    }
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  opacity: .5;
+  right: -350px;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.5s;
+  box-shadow: -4px 0 10px 0 rgba(0, 0, 0, 0.40);
+
+  .close-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 15px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken($button-color, 10%);
+    }
+
+    i {
+      font-size: 25px;
+    }
+
+    p {
+      padding-left: 10px;
+    }
+  }
+
+  .menu {
+    .menu-item {
+      height: 100px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+
+      &.active {
+        background-color: $button-color;
+      }
+
+      &:hover {
+        background: linear-gradient(45deg, #f4f4f4, #ececec);
+      }
+
+      .menu-item-content {
+        margin-top: 20px;
+        align-self: center;
+        display: flex;
+        flex-direction: column;
+        color: #3b3b3b;
+
+        span, i {
+          align-self: center;
+        }
+
+        span {
+          font-size: 20px;
+          margin: 0;
+          padding: 10px;
+          font-weight: 600;
+        }
+
+        i {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+}
+
+.opened {
+  right: 0;
+  transition: .4s ease-out;
+  opacity: 1;
+}
+
+@media only screen and (min-width: 767px) {
+  .desktop {
+    display: flex;
+  }
+
+  .mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: flex;
   }
 }
