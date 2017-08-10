@@ -33,6 +33,18 @@ body {
   }
 }
 
+.loading-chart {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+
+  i {
+    color: lighten(#3b3b3b, 50%);
+  }
+}
+
 .loader {
   display: flex;
   height: 100%;
@@ -77,17 +89,6 @@ body {
   flex-direction: column;
 }
 
-@media only screen and (max-width: 767px) {
-  .main-content {
-    width: 100%;
-  }
-
-  .sidebar {
-    display: none;
-  }
-}
-
-
 app-trashovertime-single, app-humidityovertime-single, app-massovertime-single, app-trashovertime {
   width: 100%;
   height: 100%;
@@ -123,4 +124,18 @@ app-trashovertime-single, app-humidityovertime-single, app-massovertime-single, 
 
 .graph-half {
   width: calc(50% - 50px);
+}
+
+@media only screen and (max-width: 767px) {
+  .main-content {
+    width: 100%;
+  }
+
+  .sidebar {
+    display: none;
+  }
+
+  .graph-half {
+    width: 100%;
+  }
 }

@@ -42,7 +42,7 @@ header {
   color: #3b3b3b;
 
   .logo {
-    padding-left: 15px;
+    padding-left: 18px;
     padding-top: 6px;
   }
 
@@ -55,7 +55,7 @@ header {
     display: flex;
     flex-direction: row;
     margin-left: auto;
-    padding: 0 15px;
+    padding: 0 20px;
     height: 100%;
     align-items: center;
     cursor: pointer;
@@ -75,6 +75,7 @@ header {
   }
 }
 
+/* De grijze achtergrond als het menu open staat */
 .menuOverlay {
   display: none;
 
@@ -108,7 +109,7 @@ header {
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding-left: 15px;
+    padding-left: 20px;
     cursor: pointer;
 
     &:hover {
