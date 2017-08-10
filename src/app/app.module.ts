@@ -24,6 +24,7 @@ import {TrashOverTimeComponent} from './charts/trashovertime/trashovertime.compo
 import {DetailsComponent} from './details/details.component';
 import {HumidityOverTimeSingleComponent} from './charts/humidityovertime-single/humidityovertime-single.component';
 import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
+import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanstatus-bar.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import {MassOverTimeSingleComponent} from './charts/massovertime-single/massover
     HumidityOverTimeSingleComponent,
     MassOverTimeSingleComponent,
     DetailsComponent,
-    DirectionsMapDirective
+    DirectionsMapDirective,
+    TrashcanStatusBarComponent
   ],
   imports: [
     BrowserModule,
