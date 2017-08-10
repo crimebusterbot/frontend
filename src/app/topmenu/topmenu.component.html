@@ -20,6 +20,8 @@
   </a>
 </header>
 
+<div class="menuOverlay" [class.opened]="opened" (click)="closeNavigation()"></div>
+
 <div class="sidenav" [class.opened]="opened">
   <a class="close-menu" (click)="closeNavigation()">
     <i class="fa fa-times" aria-hidden="true"></i>
