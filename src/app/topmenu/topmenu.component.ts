@@ -20,7 +20,6 @@ export class TopmenuComponent implements OnInit {
     this.router.events.subscribe((val) => {
       // see also
       this.closeNavigation();
-      console.log('Go to ohter route');
     });
   }
 
