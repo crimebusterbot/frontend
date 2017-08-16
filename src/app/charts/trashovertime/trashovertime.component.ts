@@ -54,8 +54,8 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
     const moment = new Date();
     moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
 
-    this.begin = this.datePipe.transform(moment, 'dd-MM-y');
-    this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+    this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm');
+    this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm');
 
     this.sub = this.dataService.getTotalTrashOverTime(this.begin, this.end)
       .subscribe(
