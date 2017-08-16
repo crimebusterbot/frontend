@@ -12,6 +12,12 @@ import {LogService} from '../../_services/log.service';
 export class TrashOverTimeComponent implements OnInit, OnDestroy {
   loading: boolean;
   sub: any;
+  today: boolean;
+  week: boolean;
+  fourWeeks: boolean;
+
+  begin: any;
+  end: any;
 
   public graphData: any;
   public lineChartData: Array<any> = [
@@ -29,18 +35,79 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
     maintainAspectRatio: false,
     scales: {
       yAxes: [{
-          ticks: {
-              beginAtZero: true
-          }
+        ticks: {
+          beginAtZero: true
+        }
       }]
     }
   };
 
-  constructor(private dataService: DataService, private datePipe: DatePipe, private logService: LogService) { }
+  constructor(private dataService: DataService, private datePipe: DatePipe, private logService: LogService) {
+  }
 
   ngOnInit() {
     this.loading = true;
-    this.sub = this.dataService.getTotalTrashOverTime()
+
+    this.today = true;
+
+    const dateOffset = 24 * 60 * 60 * 1000;
+    const moment = new Date();
+    moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
+
+    this.begin = this.datePipe.transform(moment, 'dd-MM-y');
+    this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+
+    this.sub = this.dataService.getTotalTrashOverTime(this.begin, this.end)
+      .subscribe(
+        graphData => {
+          this.graphData = graphData;
+          this.loading = false;
+
+          this.graphData.forEach((dataPoint) => {
+            this.lineChartData[0].data.push(dataPoint.total_volume);
+            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
+          });
+        },
+        error => {
+          this.logService.log(error);
+        }
+      );
+  }
+
+  setRange(timePeriod) {
+
+
+    if (timePeriod === 'today') {
+      this.today = true;
+
+      const dateOffset = 24 * 60 * 60 * 1000;
+      const moment = new Date();
+      moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
+
+      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
+      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+
+    } else if (timePeriod === 'week') {
+      this.week = true;
+
+      const dateOffset = (24 * 60 * 60 * 1000) * 7;
+      const moment = new Date();
+      moment.setTime(moment.getTime() - dateOffset);
+      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
+      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+
+    } else if (timePeriod === '4weeks') {
+      this.fourWeeks = true;
+
+      const dateOffset = (24 * 60 * 60 * 1000) * 28;
+      const moment = new Date();
+      moment.setTime(moment.getTime() - dateOffset);
+      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
+      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+    }
+
+    this.loading = true;
+    this.sub = this.dataService.getTotalTrashOverTime(this.begin, this.end)
       .subscribe(
         graphData => {
           this.graphData = graphData;

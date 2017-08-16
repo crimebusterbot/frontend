@@ -1,5 +1,46 @@
 .chart-container {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: calc(100% - 50px);
+}
+
+.range {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+  margin-top: auto;
+
+  .range-button {
+    background-color: lightgray;
+    height: 28px;
+    text-decoration: none;
+    color: #3b3b3b;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+      color: #3b3b3b;
+    }
+
+    &:hover {
+      background-color: #959595;
+      color: white;
+    }
+
+    &.selected {
+      background-color: gray;
+
+      p {
+        color: white;
+      }
+    }
+  }
+
+  .range-button + .range-button {
+    margin-left: 20px;
+  }
 }

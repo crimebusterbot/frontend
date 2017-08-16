@@ -23,6 +23,7 @@ import {TrashOverTimeSingleComponent} from './charts/trashovertime-single/trasho
 import {TrashOverTimeComponent} from './charts/trashovertime/trashovertime.component';
 import {DetailsComponent} from './details/details.component';
 import {HumidityOverTimeSingleComponent} from './charts/humidityovertime-single/humidityovertime-single.component';
+import {HumidityOverTimeComponent} from './charts/humidityovertime/humidityovertime.component';
 import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
 import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanstatus-bar.component';
 
@@ -37,6 +38,7 @@ import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanst
     TrashOverTimeSingleComponent,
     TrashOverTimeComponent,
     HumidityOverTimeSingleComponent,
+    HumidityOverTimeComponent,
     MassOverTimeSingleComponent,
     DetailsComponent,
     DirectionsMapDirective,

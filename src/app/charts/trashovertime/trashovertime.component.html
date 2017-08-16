@@ -7,6 +7,20 @@
   </canvas>
 </div>
 
+<div class="range" *ngIf="!loading">
+  <a class="range-button" (click)="setRange('today')" [ngClass]="{'selected': today}">
+    <p>1 Dag</p>
+  </a>
+
+  <a class="range-button" (click)="setRange('week')" [ngClass]="{'selected': week}">
+    <p>1 Week</p>
+  </a>
+
+  <a class="range-button" (click)="setRange('4weeks')" [ngClass]="{'selected': fourWeeks}">
+    <p>4 Weken</p>
+  </a>
+</div>
+
 <div class="loading-chart" *ngIf="loading">
   <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
 </div>

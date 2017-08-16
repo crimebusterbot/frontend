@@ -17,8 +17,27 @@ header {
 }
 
 .desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+
+  .account {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+
+    p {
+      font-size: 14px;
+    }
+
+    img {
+      margin-left: 10px;
+      border-radius: 50%;
+    }
+  }
+
   .logout {
-    margin-left: auto;
     height: 100%;
     padding: 0 20px;
     background-color: $button-color;

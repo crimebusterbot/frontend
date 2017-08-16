@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Http} from '@angular/http';
 
 @Injectable()
 export class DataService {
 
-  constructor(private http: Http) { }
+  constructor(private http: Http) {
+  }
 
   getTrashcans() {
     // const url = 'https://private-dd1e58-smarttrashcan.apiary-mock.com/trashcans';
-     const url = 'https://smarttrash.herokuapp.com/trashcans';
+    const url = 'https://smarttrash.herokuapp.com/trashcans';
 
-     return this.http.get(url)
-       .map(res => res.json());
+    return this.http.get(url)
+      .map(res => res.json());
   }
 
   getTrashcansRoute() {
@@ -37,8 +38,17 @@ export class DataService {
       .map(res => res.json());
   }
 
-  getTotalTrashOverTime() {
+  getTotalTrashOverTime(begin, end) {
     const url = 'https://smarttrash.herokuapp.com/analytics/totalFilledUp';
+
+    if (begin && end) {
+      return this.http.get(url + '?begin=' + begin + '&end=' + end)
+        .map(res => res.json());
+    }
+  }
+
+  getTotalHumidityOverTime() {
+    const url = 'https://smarttrash.herokuapp.com/analytics/totalHumidity';
 
     return this.http.get(url)
       .map(res => res.json());
