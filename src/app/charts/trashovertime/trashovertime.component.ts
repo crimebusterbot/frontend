@@ -65,7 +65,7 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
 
           this.graphData.forEach((dataPoint) => {
             this.lineChartData[0].data.push(dataPoint.total_volume);
-            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
+            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'dd-MM H:mm'));
           });
         },
         error => {
@@ -76,6 +76,8 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
 
   setRange(timePeriod) {
 
+    this.lineChartData[0].data = [];
+    this.lineChartLabels = [];
 
     if (timePeriod === 'today') {
       this.today = true;
@@ -115,7 +117,7 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
 
           this.graphData.forEach((dataPoint) => {
             this.lineChartData[0].data.push(dataPoint.total_volume);
-            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
+            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'dd-MM H:mm'));
           });
         },
         error => {
