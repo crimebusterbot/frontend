@@ -84,8 +84,8 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
       const moment = new Date();
       moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
 
-      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
-      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
+      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
 
     } else if (timePeriod === 'week') {
       this.week = true;
@@ -93,8 +93,8 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
       const dateOffset = (24 * 60 * 60 * 1000) * 7;
       const moment = new Date();
       moment.setTime(moment.getTime() - dateOffset);
-      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
-      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
+      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
 
     } else if (timePeriod === '4weeks') {
       this.fourWeeks = true;
@@ -102,8 +102,8 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
       const dateOffset = (24 * 60 * 60 * 1000) * 28;
       const moment = new Date();
       moment.setTime(moment.getTime() - dateOffset);
-      this.begin = this.datePipe.transform(moment, 'dd-MM-y');
-      this.end = this.datePipe.transform(new Date(), 'dd-MM-y');
+      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
+      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
     }
 
     this.loading = true;
