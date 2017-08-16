@@ -50,6 +50,7 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
 
     this.today = true;
 
+    // TODO Het bepalen van de range een losse service maken.
     const dateOffset = 24 * 60 * 60 * 1000;
     const moment = new Date();
     moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
@@ -85,6 +86,7 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
       const dateOffset = 24 * 60 * 60 * 1000;
       const moment = new Date();
       moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
+      console.log(moment);
 
       this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
       this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
