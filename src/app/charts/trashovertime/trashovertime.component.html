@@ -8,15 +8,15 @@
 </div>
 
 <div class="range" *ngIf="!loading">
-  <a class="range-button" (click)="setRange('today')" [ngClass]="{'selected': today}">
+  <a class="range-button" (click)="setRange('today')" [ngClass]="{'selected': active === 'today'}">
     <p>1 Dag</p>
   </a>
 
-  <a class="range-button" (click)="setRange('week')" [ngClass]="{'selected': week}">
+  <a class="range-button" (click)="setRange('week')" [ngClass]="{'selected': active === 'week'}">
     <p>1 Week</p>
   </a>
 
-  <a class="range-button" (click)="setRange('4weeks')" [ngClass]="{'selected': fourWeeks}">
+  <a class="range-button" (click)="setRange('4weeks')" [ngClass]="{'selected': active === '4weeks'}">
     <p>4 Weken</p>
   </a>
 </div>

@@ -33,22 +33,10 @@ export class MapComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.loading = true;
 
-    this.dataService.getTrashcanArea(1)
-      .subscribe(
-        areas => {
-          this.areaData = areas;
-
-          this.areaData.coordinates.forEach((area) => {
-            this.areas.push(area);
-          });
-        }
-      );
-
     this.sub = this.dataService.getTrashcans()
       .subscribe(
         trashcans => {
           this.trashcans = trashcans;
-          this.loading = false;
 
           // We laden een object dat het centrum van de verschillende prullenbakken berekend.
           this.mapsAPILoader.load().then(() => {
@@ -60,6 +48,17 @@ export class MapComponent implements OnInit, OnDestroy {
         },
         error => {
           this.logService.log(error);
+        }
+      );
+
+
+    // We halen de coordinaten van de areas op
+    this.dataService.getTrashcanAreas()
+      .subscribe(
+        areaData => {
+          this.areaData = areaData;
+
+          this.loading = false;
         }
       );
   }

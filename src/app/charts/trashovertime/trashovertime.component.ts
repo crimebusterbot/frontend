@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from '../../_services/data.service';
 import {DatePipe} from '@angular/common';
 import {LogService} from '../../_services/log.service';
+import {RangeService} from '../../_services/range.service';
 
 @Component({
   selector: 'app-trashovertime',
@@ -12,9 +13,7 @@ import {LogService} from '../../_services/log.service';
 export class TrashOverTimeComponent implements OnInit, OnDestroy {
   loading: boolean;
   sub: any;
-  today: boolean;
-  week: boolean;
-  fourWeeks: boolean;
+  active: string;
 
   begin: any;
   end: any;
@@ -42,21 +41,24 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
     }
   };
 
-  constructor(private dataService: DataService, private datePipe: DatePipe, private logService: LogService) {
+  constructor(private dataService: DataService,
+              private datePipe: DatePipe,
+              private logService: LogService,
+              private rangeService: RangeService) {
   }
 
   ngOnInit() {
     this.loading = true;
 
-    this.today = true;
+    this.active = 'today';
 
     // TODO Het bepalen van de range een losse service maken.
     const dateOffset = 24 * 60 * 60 * 1000;
     const moment = new Date();
     moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
 
-    this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
-    this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
+    this.begin = this.rangeService.calculateBegin('today');
+    this.end = this.rangeService.calculateEnd();
 
     this.sub = this.dataService.getTotalTrashOverTime(this.begin, this.end)
       .subscribe(
@@ -80,35 +82,9 @@ export class TrashOverTimeComponent implements OnInit, OnDestroy {
     this.lineChartData[0].data = [];
     this.lineChartLabels = [];
 
-    if (timePeriod === 'today') {
-      this.today = true;
+    this.active = timePeriod;
 
-      const dateOffset = 24 * 60 * 60 * 1000;
-      const moment = new Date();
-      moment.setTime(moment.getTime() - dateOffset); // Bereken nieuwe begin tijd
-      console.log(moment);
-
-      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
-      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
-
-    } else if (timePeriod === 'week') {
-      this.week = true;
-
-      const dateOffset = (24 * 60 * 60 * 1000) * 7;
-      const moment = new Date();
-      moment.setTime(moment.getTime() - dateOffset);
-      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
-      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
-
-    } else if (timePeriod === '4weeks') {
-      this.fourWeeks = true;
-
-      const dateOffset = (24 * 60 * 60 * 1000) * 28;
-      const moment = new Date();
-      moment.setTime(moment.getTime() - dateOffset);
-      this.begin = this.datePipe.transform(moment, 'yyyy-MM-dd hh:mm:ss');
-      this.end = this.datePipe.transform(new Date(), 'yyyy-MM-dd hh:mm:ss');
-    }
+    this.begin = this.rangeService.calculateBegin(timePeriod);
 
     this.loading = true;
     this.sub = this.dataService.getTotalTrashOverTime(this.begin, this.end)

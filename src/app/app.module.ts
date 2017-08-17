@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
+import {DatePipe} from '@angular/common';
 
 import {Routing} from './app.routes';
 
@@ -9,6 +10,7 @@ import {ChartsModule} from 'ng2-charts';
 
 import {DataService} from './_services/data.service';
 import {LogService} from './_services/log.service';
+import {RangeService} from './_services/range.service';
 
 import {DirectionsMapDirective} from './_directives/agm-directions.directive';
 
@@ -53,7 +55,7 @@ import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanst
     Routing,
     HttpModule
   ],
-  providers: [DataService, LogService],
+  providers: [DataService, LogService, RangeService, DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {
