@@ -17,6 +17,13 @@ export class MapComponent implements OnInit, OnDestroy {
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
   sub: any;
+  fillColor = 'red';
+  fillOpacity = 0.02;
+  strokeColor = 'red';
+  strokeOpacity = 0.03;
+
+  areas = [];
+  areaData: any;
 
   constructor(private dataService: DataService,
               private mapsAPILoader: MapsAPILoader,
@@ -25,6 +32,18 @@ export class MapComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.loading = true;
+
+    this.dataService.getTrashcanArea(1)
+      .subscribe(
+        areas => {
+          this.areaData = areas;
+
+          this.areaData.coordinates.forEach((area) => {
+            this.areas.push(area);
+          });
+        }
+      );
+
     this.sub = this.dataService.getTrashcans()
       .subscribe(
         trashcans => {

@@ -67,4 +67,11 @@ export class DataService {
     return this.http.get(url + '/' + id)
       .map(res => res.json());
   }
+
+  getTrashcanArea(id) {
+    const url = 'https://private-dd1e58-smarttrashcan.apiary-mock.com/trashcans/area';
+
+    return this.http.get(url + '/' + id)
+      .map(res => res.json());
+  }
 }
