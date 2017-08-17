@@ -47,11 +47,13 @@ export class DataService {
     }
   }
 
-  getTotalHumidityOverTime() {
+  getTotalHumidityOverTime(begin, end) {
     const url = 'https://smarttrash.herokuapp.com/analytics/totalHumidity';
 
-    return this.http.get(url)
-      .map(res => res.json());
+    if (begin && end) {
+      return this.http.get(url + '?begin=' + begin + '&end=' + end)
+        .map(res => res.json());
+    }
   }
 
   getHumidityOverTime(id) {
