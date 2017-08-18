@@ -16,11 +16,11 @@ export class DataService {
       .map(res => res.json());
   }
 
-  getTrashcansRoute() {
+  getTrashcansRoute(id) {
     // const url = 'https://private-dd1e58-smarttrashcan.apiary-mock.com/trashcans/getroute';
     const url = 'https://smarttrash.herokuapp.com/trashcans/getroute';
 
-    return this.http.get(url)
+    return this.http.get(url + '/' + id) // We halen een route altijd voor een bepaald gebied op.
       .map(res => res.json());
   }
 
