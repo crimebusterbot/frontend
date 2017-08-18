@@ -67,7 +67,7 @@ export class MapComponent implements OnInit, OnDestroy {
   calculateStatus(percentage) {
     if (percentage < 40) {
       return './../assets/images/green-trashcan.png';
-    } else if (percentage > 40 && percentage < 80) {
+    } else if (percentage > 40 && percentage < 70) {
       return './../assets/images/orange-trashcan.png';
     } else {
       return './../assets/images/red-trashcan.png';
