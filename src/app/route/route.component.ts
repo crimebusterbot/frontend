@@ -49,17 +49,21 @@ export class RouteComponent implements OnInit, OnDestroy {
               .subscribe(
                 trashcansOnRoute => {
 
+                  const routeIndex = index;
+
                   this.routes.push([]);
 
-                  this.routes[index].origin = {
+                  this.routes[routeIndex].origin = {
                     latitude: trashcansOnRoute.route[0].latt,
                     longitude: trashcansOnRoute.route[0].long
                   };
 
-                  this.routes[index].destination = {
+                  this.routes[routeIndex].destination = {
                     latitude: trashcansOnRoute.route[trashcansOnRoute.route.length - 1].latt,
                     longitude: trashcansOnRoute.route[trashcansOnRoute.route.length - 1].long
                   };
+
+                  this.routes[routeIndex].waypoints = [];
 
                   // Het begin en eindpunt van de route
 
@@ -69,15 +73,13 @@ export class RouteComponent implements OnInit, OnDestroy {
 
                     // De eerste en laatste kunnen geen waypoints zijn.
                     if (index !== 0 && index !== trashcansOnRoute.route.length - 1) {
-                      this.waypoints.push({
+                      this.routes[routeIndex].waypoints.push({
                         location: trashcan.latt + ',' + trashcan.long,
                         stopover: true
                       });
                     }
                   });
 
-                  // Zet de waypoints op de juiste plek
-                  this.routes[index].waypoints = this.waypoints;
                 },
                 error => {
                   this.logService.log(error);
