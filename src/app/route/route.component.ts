@@ -23,9 +23,9 @@ export class RouteComponent implements OnInit, OnDestroy {
   areas: any;
 
   fillColor = 'red';
-  fillOpacity = 0.02;
+  fillOpacity = 0.2;
   strokeColor = 'red';
-  strokeOpacity = 0.03;
+  strokeOpacity = 0.3;
 
   waypoints = [];
   routes = [];
@@ -48,11 +48,11 @@ export class RouteComponent implements OnInit, OnDestroy {
             this.dataService.getTrashcansRoute(area.id)
               .subscribe(
                 trashcansOnRoute => {
-
                   const routeIndex = index;
 
                   this.routes.push([]);
 
+                  // Het begin en eindpunt van de route
                   this.routes[routeIndex].origin = {
                     latitude: trashcansOnRoute.route[0].latt,
                     longitude: trashcansOnRoute.route[0].long
@@ -65,12 +65,8 @@ export class RouteComponent implements OnInit, OnDestroy {
 
                   this.routes[routeIndex].waypoints = [];
 
-                  // Het begin en eindpunt van de route
-
-
                   // We maken een object aan dat de informatie over de waypoints (de tussenliggende punten) bevat
                   trashcansOnRoute.route.forEach((trashcan, index) => {
-
                     // De eerste en laatste kunnen geen waypoints zijn.
                     if (index !== 0 && index !== trashcansOnRoute.route.length - 1) {
                       this.routes[routeIndex].waypoints.push({
@@ -80,6 +76,25 @@ export class RouteComponent implements OnInit, OnDestroy {
                     }
                   });
 
+                  // Alle prullenbakken voor op de kaart
+                  this.dataService.getTrashcans()
+                    .subscribe(
+                      trashcans => {
+                        this.trashcans = trashcans;
+                        this.loading = false;
+
+                        // We laden een object dat het centrum van de verschillende prullenbakken berekend.
+                        this.mapsAPILoader.load().then(() => {
+                          this.latlngBounds = new window['google'].maps.LatLngBounds();
+                          this.trashcans.forEach((trashcan) => {
+                            this.latlngBounds.extend(new window['google'].maps.LatLng(trashcan.lat, trashcan.long));
+                          });
+                        });
+                      },
+                      error => {
+                        this.logService.log(error);
+                      }
+                    );
                 },
                 error => {
                   this.logService.log(error);
@@ -88,26 +103,6 @@ export class RouteComponent implements OnInit, OnDestroy {
           });
 
           console.log(this.routes);
-
-          // Alle prullenbakken voor op de kaart
-          this.dataService.getTrashcans()
-            .subscribe(
-              trashcans => {
-                this.trashcans = trashcans;
-                this.loading = false;
-
-                // We laden een object dat het centrum van de verschillende prullenbakken berekend.
-                this.mapsAPILoader.load().then(() => {
-                  this.latlngBounds = new window['google'].maps.LatLngBounds();
-                  this.trashcans.forEach((trashcan) => {
-                    this.latlngBounds.extend(new window['google'].maps.LatLng(trashcan.lat, trashcan.long));
-                  });
-                });
-              },
-              error => {
-                this.logService.log(error);
-              }
-            );
         }
       );
   }
