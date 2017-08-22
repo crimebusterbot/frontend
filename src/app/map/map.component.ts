@@ -17,12 +17,12 @@ export class MapComponent implements OnInit, OnDestroy {
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
   sub: any;
+
   fillColor = 'red';
   fillOpacity = 0.02;
   strokeColor = 'red';
   strokeOpacity = 0.03;
 
-  areas = [];
   areaData: any;
 
   constructor(private dataService: DataService,
@@ -50,7 +50,6 @@ export class MapComponent implements OnInit, OnDestroy {
           this.logService.log(error);
         }
       );
-
 
     // We halen de coordinaten van de areas op
     this.dataService.getTrashcanAreas()

@@ -76,4 +76,11 @@ export class DataService {
     return this.http.get(url)
       .map(res => res.json());
   }
+
+  getTimesEmptied() {
+    const url = 'https://smarttrash.herokuapp.com/analytics/timesemptied';
+
+    return this.http.get(url)
+      .map(res => res.json());
+  }
 }

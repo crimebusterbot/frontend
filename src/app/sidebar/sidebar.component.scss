@@ -40,6 +40,7 @@ aside {
     display: flex;
     flex-direction: column;
     text-decoration: none;
+    justify-content: center;
 
     &.active {
       background-color: $button-color;
@@ -50,7 +51,6 @@ aside {
     }
 
     .menu-item-content {
-      margin-top: 20px;
       align-self: center;
       display: flex;
       flex-direction: column;
@@ -60,10 +60,10 @@ aside {
         align-self: center;
       }
 
-      span {
+      .menu-button-text {
         font-size: 20px;
         margin: 0;
-        padding: 10px;
+        padding-top: 10px;
         font-weight: 600;
       }
 

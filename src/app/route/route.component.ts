@@ -66,10 +66,12 @@ export class RouteComponent implements OnInit, OnDestroy {
     this.dataService.getTrashcansRoute(areaId)
       .subscribe(
         trashcansOnRoute => {
+
+          console.log(trashcansOnRoute);
+
           const routeIndex = index;
 
           this.routes.push([]);
-          console.log(this.routes);
 
           // Het begin en eindpunt van de route bepalen
           this.routes[routeIndex].origin = {

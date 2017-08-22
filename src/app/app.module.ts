@@ -13,6 +13,7 @@ import {LogService} from './_services/log.service';
 import {RangeService} from './_services/range.service';
 
 import {DirectionsMapDirective} from './_directives/agm-directions.directive';
+import {AgmHeatmapDirective} from './_directives/agm-heatmap.directive';
 
 import {AppComponent} from './app.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
@@ -28,6 +29,7 @@ import {HumidityOverTimeSingleComponent} from './charts/humidityovertime-single/
 import {HumidityOverTimeComponent} from './charts/humidityovertime/humidityovertime.component';
 import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
 import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanstatus-bar.component';
+import { HeatmapComponent } from './heatmap/heatmap.component';
 
 @NgModule({
   declarations: [
@@ -44,13 +46,16 @@ import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanst
     MassOverTimeSingleComponent,
     DetailsComponent,
     DirectionsMapDirective,
-    TrashcanStatusBarComponent
+    AgmHeatmapDirective,
+    TrashcanStatusBarComponent,
+    HeatmapComponent
   ],
   imports: [
     BrowserModule,
     ChartsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAQGPLoSMSsvmkhObuh6ja2uJNeRJXWiVI'
+      apiKey: 'AIzaSyAQGPLoSMSsvmkhObuh6ja2uJNeRJXWiVI',
+      libraries: ['visualization']
     }),
     Routing,
     HttpModule

@@ -1,5 +1,7 @@
 <agm-map [zoom]="zoom" [fitBounds]="latlngBounds" *ngIf="!loading && trashcans.length > 0" >
   <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
+
+
     <agm-polygon *ngFor="let area of areaData" [paths]="area.area" [fillOpacity]="fillOpacity" [fillColor]="fillColor" [strokeColor]="strokeColor" [strokeOpacity]="strokeOpacity"></agm-polygon>
 
     <agm-info-window>
