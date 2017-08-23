@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/map';
 import {Http} from '@angular/http';
+import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class DataService {
@@ -16,12 +17,20 @@ export class DataService {
       .map(res => res.json());
   }
 
-  getTrashcansRoute(id) {
-    // const url = 'https://private-dd1e58-smarttrashcan.apiary-mock.com/trashcans/getroute';
+  // Stuur een array met ids van areas mee.
+  getTrashcansRoute(idObject) {
     const url = 'https://smarttrash.herokuapp.com/trashcans/getroute';
 
-    return this.http.get(url + '/' + id) // We halen een route altijd voor een bepaald gebied op.
-      .map(res => res.json());
+    // We slaan tijdelijk een array met daarin observables op.
+    let observableBatch = [];
+
+    // We pushen nieuwe observables om ze te kunnen combineren later.
+    idObject.forEach(( id ) => {
+      observableBatch.push( this.http.get(url + '/' + id).map(res => res.json()));
+    });
+
+    // Gebruik een forkjoin om meerdere calls te combineren
+    return Observable.forkJoin(observableBatch);
   }
 
   getTrashcan(id) {

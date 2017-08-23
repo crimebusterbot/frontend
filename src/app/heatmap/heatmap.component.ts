@@ -32,7 +32,7 @@ export class HeatmapComponent implements OnInit {
             this.heatmapPoints.push({latitude: trashcan.latt, longitude: trashcan.long, weight: trashcan.timesEmptied});
           });
 
-          // We laden een object dat het centrum van de verschillende prullenbakken berekend.
+          // We laden een object dat het centrum van de verschillende punten berekend.
           this.mapsAPILoader.load().then(() => {
             this.latlngBounds = new window['google'].maps.LatLngBounds();
             heatmapData.forEach((location) => {

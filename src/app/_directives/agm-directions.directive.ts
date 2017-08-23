@@ -16,10 +16,11 @@ export class DirectionsMapDirective implements OnInit {
   }
 
   ngOnInit() {
-   // console.log(this.waypoints);
+    // console.log(this.waypoints);
 
 
     this.googleMapsAPIWrapper.getNativeMap().then(map => {
+
       const directionsService = new google.maps.DirectionsService;
       const directionsDisplay = new google.maps.DirectionsRenderer;
 

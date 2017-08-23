@@ -42,19 +42,17 @@ export class RouteComponent implements OnInit, OnDestroy {
       .subscribe(
         areas => {
           this.areas = areas;
+          const allAreaIDs = [];
 
-          // Voor elke area moeten we een aparte route ophalen
-          if (this.areas) {
-            this.areas.forEach((area, index) => {
+          // Stuur een object met ids naar de service die ze vervolgens bundeld en ophaald.
+          this.areas.forEach((area, index) => {
+            allAreaIDs.push(area.id);
+          });
 
-              // Use the function to process routes
-              this.processRoutes(area.id, index);
-            });
-          } else {
-            console.log('Areas are missing');
-          }
-
-          this.processTrashcans();
+          // Gebruik de opgehaalde data om de routes voor te bereiden.
+          this.processRoutes(allAreaIDs, callback => {
+            this.processTrashcans();
+          });
         },
         error => {
           console.log(error);
@@ -62,40 +60,43 @@ export class RouteComponent implements OnInit, OnDestroy {
       );
   }
 
-  processRoutes(areaId, index) {
-    this.dataService.getTrashcansRoute(areaId)
+  processRoutes(allAreaIDs, callback) {
+    this.dataService.getTrashcansRoute(allAreaIDs)
       .subscribe(
-        trashcansOnRoute => {
+        routeCollection => {
+          routeCollection.forEach((routeObject, index) => {
+            this.routes.push([]);
 
-          console.log(trashcansOnRoute);
+            const routeIndex = index;
 
-          const routeIndex = index;
 
-          this.routes.push([]);
+            // Het begin en eindpunt van de route bepalen
+            this.routes[routeIndex].origin = {
+              latitude: routeObject['route'][0].latt,
+              longitude: routeObject['route'][0].long
+            };
 
-          // Het begin en eindpunt van de route bepalen
-          this.routes[routeIndex].origin = {
-            latitude: trashcansOnRoute.route[0].latt,
-            longitude: trashcansOnRoute.route[0].long
-          };
+            this.routes[routeIndex].destination = {
+              latitude: routeObject['route'][routeObject['route'].length - 1].latt,
+              longitude: routeObject['route'][routeObject['route'].length - 1].long
+            };
 
-          this.routes[routeIndex].destination = {
-            latitude: trashcansOnRoute.route[trashcansOnRoute.route.length - 1].latt,
-            longitude: trashcansOnRoute.route[trashcansOnRoute.route.length - 1].long
-          };
+            this.routes[routeIndex].waypoints = [];
 
-          this.routes[routeIndex].waypoints = [];
-
-          // We maken een object aan dat de informatie over de waypoints (de tussenliggende punten) bevat
-          trashcansOnRoute.route.forEach((trashcan, index) => {
-            // De eerste en laatste kunnen geen waypoints zijn.
-            if (index !== 0 && index !== trashcansOnRoute.route.length - 1) {
-              this.routes[routeIndex].waypoints.push({
-                location: trashcan.latt + ',' + trashcan.long,
-                stopover: true
-              });
-            }
+            // We maken een object aan dat de informatie over de waypoints (de tussenliggende punten) bevat
+            routeObject['route'].forEach((trashcan, index) => {
+              // De eerste en laatste kunnen geen waypoints zijn.
+              if (index !== 0 && index !== routeObject['route'].length - 1) {
+                this.routes[routeIndex].waypoints.push({
+                  location: trashcan.latt + ',' + trashcan.long,
+                  stopover: true
+                });
+              }
+            });
           });
+
+          // Pas als alles klaar is laden we de rest in.
+          callback();
         },
         error => {
           this.logService.log(error);
