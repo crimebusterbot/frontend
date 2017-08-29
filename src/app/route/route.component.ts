@@ -49,7 +49,8 @@ export class RouteComponent implements OnInit, OnDestroy {
             allAreaIDs.push(area.id);
           });
 
-          // Gebruik de opgehaalde data om de routes voor te bereiden.
+          // Gebruik de opgehaalde data om de routes voor te bereiden,
+          // we gebruiken een callback om hierna de prullenbakken te laden
           this.processRoutes(allAreaIDs, callback => {
             this.processTrashcans();
           });
@@ -68,7 +69,6 @@ export class RouteComponent implements OnInit, OnDestroy {
             this.routes.push([]);
 
             const routeIndex = index;
-
 
             // Het begin en eindpunt van de route bepalen
             this.routes[routeIndex].origin = {
