@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
+import {ReadableTimePipe} from '../_pipes/readable-time.pipe';
 import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager} from '@agm/core';
 
 import {Trashcan} from '../_interfaces/trashcan.model';

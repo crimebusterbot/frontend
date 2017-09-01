@@ -15,6 +15,8 @@ import {RangeService} from './_services/range.service';
 import {DirectionsMapDirective} from './_directives/agm-directions.directive';
 import {AgmHeatmapDirective} from './_directives/agm-heatmap.directive';
 
+import {ReadableTimePipe} from './_pipes/readable-time.pipe';
+
 import {AppComponent} from './app.component';
 import {SidebarComponent} from './sidebar/sidebar.component';
 import {TopmenuComponent} from './topmenu/topmenu.component';
@@ -52,7 +54,9 @@ import { RoutemapComponent } from './routemap/routemap.component';
     TrashcanStatusBarComponent,
     HeatmapComponent,
     RoutestepsComponent,
-    RoutemapComponent
+    RoutemapComponent,
+    ReadableTimePipe
+
   ],
   imports: [
     BrowserModule,
