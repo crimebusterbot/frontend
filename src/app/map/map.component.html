@@ -10,6 +10,8 @@
 
         <p>{{trashcan.filled_up}}% full</p>
 
+        <p *ngIf="trashcan.filled_up < 95">Trashcan full in {{trashcan.minutesTillFull * 60 | readableTime}}</p>
+
         <a class="trashcan-info-button" routerLink="/map/{{trashcan.id}}">More details</a>
       </div>
     </agm-info-window>
