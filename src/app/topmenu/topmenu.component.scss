@@ -5,14 +5,14 @@
   top: 0;
   height: 60px;
   width: 80%; /* Omdat het een fixed element is moet je weer het juiste percentage meegeven. */
-  z-index: 1;
+  z-index: 7;
 }
 
 header {
   height: 60px;
   background-color: white;
   box-shadow: 8px 0 10px 0 rgba(0, 0, 0, 0.3);
-  z-index: 2;
+  z-index: 8;
   position: relative;
 }
 

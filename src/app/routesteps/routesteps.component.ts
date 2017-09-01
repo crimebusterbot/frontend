@@ -60,8 +60,14 @@ export class RoutestepsComponent implements OnInit, OnDestroy {
       };
 
       this.coordinates.push(this.card);
-      console.log("card",this.card);
+
     };
+
+    this.routeSteps = this.coordinates[0];
+    this.showmap = true;
+
+
+
   }
 
   select(location){
