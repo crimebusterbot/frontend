@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, NgZone, OnDestroy } from '@angular/core';
 import {DataService} from '../_services/data.service';
 import {LogService} from '../_services/log.service';
 
@@ -10,7 +10,8 @@ import {LogService} from '../_services/log.service';
 export class RoutestepsComponent implements OnInit, OnDestroy {
 
   constructor(private dataService: DataService,
-              private logService: LogService) { }
+              private logService: LogService,
+              private zone: NgZone) { }
 
   sub: any;
   trashcans: any;
@@ -20,6 +21,7 @@ export class RoutestepsComponent implements OnInit, OnDestroy {
   alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
   showmap = false;
   routeSteps: any;
+
 
   ngOnInit() {
     this.googleAPIKey = "AIzaSyBQewtxu9Ba2IvG5wytQLF185jE7QkgLKU";
@@ -73,7 +75,7 @@ export class RoutestepsComponent implements OnInit, OnDestroy {
   select(location){
     this.routeSteps = location;
     this.showmap = true;
-    console.log(location);
+
   }
 
   ngOnDestroy() {

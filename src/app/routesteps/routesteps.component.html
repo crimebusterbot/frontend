@@ -18,15 +18,19 @@
 
      <div class="deskt">
        <div *ngFor="let mytrash of this.coordinates">
-         <a class="range-button" (click)=select(mytrash)>
-           <p>{{mytrash.letter}}</p>
+         <a class="range-button" [class.range-button2]="mytrash.letter == routeSteps.letter" (click)=select(mytrash)>
+           <p *ngIf="mytrash.letter">{{mytrash.letter}}</p>
          </a>
-         <!--<button type="button" id="but" (click)=select(mytrash)>{{mytrash.letter}}</button> -->
+         <div class="deskmobile" *ngIf="routeSteps == mytrash && showmap">
+             <app-routemap [info]="routeSteps" [zoom]="19"></app-routemap>
+         </div>
        </div>
      </div>
 
     <div class="desk">
-        <app-routemap *ngIf="showmap" [info]="routeSteps"></app-routemap>
+        <app-routemap *ngIf="showmap" [info]="routeSteps" [zoom]="17"></app-routemap>
     </div>
+
+
 
 </div>

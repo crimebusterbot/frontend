@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class RoutemapComponent implements OnInit {
 
   @Input() info:any;
+  @Input() zoom: number;
   googleAPIKey: string;
 
 
