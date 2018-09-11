@@ -9,11 +9,12 @@ import {LogService} from '../_services/log.service';
   styleUrls: ['./heatmap.component.scss'],
   providers: [InfoWindowManager, GoogleMapsAPIWrapper]
 })
+
 export class HeatmapComponent implements OnInit {
 
   latlngBounds;
   loading = false;
-  heatmapPoints = [];
+  heatmapPoints: any = [];
   sub: any;
   zoom = 20;
 
@@ -27,7 +28,7 @@ export class HeatmapComponent implements OnInit {
 
     this.sub = this.dataService.getTimesEmptied()
       .subscribe(
-        heatmapData => {
+        (heatmapData: any) => {
           heatmapData.forEach((trashcan) => {
             this.heatmapPoints.push({latitude: trashcan.latt, longitude: trashcan.long, weight: trashcan.timesEmptied});
           });

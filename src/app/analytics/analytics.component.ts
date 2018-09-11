@@ -6,13 +6,12 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './analytics.component.html',
   styleUrls: ['./analytics.component.scss']
 })
-export class AnalyticsComponent implements OnInit, OnDestroy {
 
+export class AnalyticsComponent implements OnInit, OnDestroy {
   id: number;
   sub: any;
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {

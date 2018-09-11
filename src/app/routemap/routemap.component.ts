@@ -5,18 +5,16 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './routemap.component.html',
   styleUrls: ['./routemap.component.scss']
 })
+
 export class RoutemapComponent implements OnInit {
 
-  @Input() info:any;
+  @Input() info: any;
   @Input() zoom: number;
   googleAPIKey: string;
-
 
   constructor() { }
 
   ngOnInit() {
-
-    this.googleAPIKey = "AIzaSyBQewtxu9Ba2IvG5wytQLF185jE7QkgLKU";
+    this.googleAPIKey = 'AIzaSyA0GAxZTfJDYAROt2bAQs58zZ28RO7XpR0';
   }
-
 }

@@ -12,6 +12,7 @@ import {LogService} from '../_services/log.service';
   styleUrls: ['./map.component.scss'],
   providers: [InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager]
 })
+
 export class MapComponent implements OnInit, OnDestroy {
   loading: boolean;
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
@@ -36,7 +37,7 @@ export class MapComponent implements OnInit, OnDestroy {
 
     this.sub = this.dataService.getTrashcans()
       .subscribe(
-        trashcans => {
+        (trashcans: Trashcan[]) => {
           this.trashcans = trashcans;
 
           // We laden een object dat het centrum van de verschillende prullenbakken berekend.

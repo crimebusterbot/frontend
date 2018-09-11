@@ -14,6 +14,7 @@ import {LogService} from '../_services/log.service';
   styleUrls: ['./route.component.scss'],
   providers: [InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager]
 })
+
 export class RouteComponent implements OnInit, OnDestroy {
   loading: boolean;
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
@@ -76,7 +77,7 @@ export class RouteComponent implements OnInit, OnDestroy {
               longitude: routeObject['route'][0].long
             };
 
-              console.log("origin", this.routes[routeIndex].origin)
+            console.log("origin", this.routes[routeIndex].origin);
             this.routes[routeIndex].destination = {
               latitude: routeObject['route'][routeObject['route'].length - 1].latt,
               longitude: routeObject['route'][routeObject['route'].length - 1].long
@@ -109,7 +110,7 @@ export class RouteComponent implements OnInit, OnDestroy {
     // Alle prullenbakken voor op de kaart
     this.dataService.getTrashcans()
       .subscribe(
-        trashcans => {
+        (trashcans: Trashcan[]) => {
           this.trashcans = trashcans;
           this.loading = false;
 

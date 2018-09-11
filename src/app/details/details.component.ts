@@ -6,12 +6,12 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.scss']
 })
+
 export class DetailsComponent implements OnInit, OnDestroy {
   id: number;
   private sub: any;
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {

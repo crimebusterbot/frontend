@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {HttpModule} from '@angular/http';
+import {HttpClientModule} from '@angular/common/http';
 import {DatePipe} from '@angular/common';
 
 import {Routing} from './app.routes';
@@ -66,7 +67,8 @@ import { RoutemapComponent } from './routemap/routemap.component';
       libraries: ['visualization']
     }),
     Routing,
-    HttpModule
+    HttpModule,
+    HttpClientModule
   ],
   providers: [DataService, LogService, RangeService, DatePipe],
   bootstrap: [AppComponent]
