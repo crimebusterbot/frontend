@@ -66,8 +66,8 @@ export class RouteComponent implements OnInit, OnDestroy {
       .subscribe(
         routeCollection => {
           routeCollection.forEach((routeObject, index) => {
+            console.log("routeobject", routeObject);
             this.routes.push([]);
-
             const routeIndex = index;
 
             // Het begin en eindpunt van de route bepalen
@@ -76,6 +76,7 @@ export class RouteComponent implements OnInit, OnDestroy {
               longitude: routeObject['route'][0].long
             };
 
+              console.log("origin", this.routes[routeIndex].origin)
             this.routes[routeIndex].destination = {
               latitude: routeObject['route'][routeObject['route'].length - 1].latt,
               longitude: routeObject['route'][routeObject['route'].length - 1].long

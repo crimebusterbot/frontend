@@ -32,6 +32,8 @@ import {HumidityOverTimeComponent} from './charts/humidityovertime/humidityovert
 import {MassOverTimeSingleComponent} from './charts/massovertime-single/massovertime-single.component';
 import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanstatus-bar.component';
 import { HeatmapComponent } from './heatmap/heatmap.component';
+import { RoutestepsComponent } from './routesteps/routesteps.component';
+import { RoutemapComponent } from './routemap/routemap.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,10 @@ import { HeatmapComponent } from './heatmap/heatmap.component';
     AgmHeatmapDirective,
     TrashcanStatusBarComponent,
     HeatmapComponent,
+    RoutestepsComponent,
+    RoutemapComponent,
     ReadableTimePipe
+
   ],
   imports: [
     BrowserModule,
