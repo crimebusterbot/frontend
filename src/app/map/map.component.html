@@ -12,6 +12,8 @@
 
         <p *ngIf="trashcan.filled_up < 95">Trashcan full in {{trashcan.minutesTillFull * 60 | readableTime}}</p>
 
+        <p>Last emptied on {{trashcan.last_emptied | date:'dd-MM'}} on {{trashcan.last_emptied | date:'hh:mm'}}</p>
+
         <a class="trashcan-info-button" routerLink="/map/{{trashcan.id}}">More details</a>
       </div>
     </agm-info-window>

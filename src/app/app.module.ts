@@ -57,7 +57,7 @@ import { HeatmapComponent } from './heatmap/heatmap.component';
     BrowserModule,
     ChartsModule,
     AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyAQGPLoSMSsvmkhObuh6ja2uJNeRJXWiVI',
+      apiKey: 'AIzaSyA0GAxZTfJDYAROt2bAQs58zZ28RO7XpR0',
       libraries: ['visualization']
     }),
     Routing,

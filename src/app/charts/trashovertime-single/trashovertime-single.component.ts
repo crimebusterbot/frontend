@@ -49,7 +49,7 @@ export class TrashOverTimeSingleComponent implements OnInit, OnDestroy {
 
           this.graphData.forEach((dataPoint) => {
             this.lineChartData[0].data.push(dataPoint.filled_up);
-            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'H:mm'));
+            this.lineChartLabels.push(this.datePipe.transform(dataPoint.time, 'dd-MM H:mm'));
           });
         },
         error => {
