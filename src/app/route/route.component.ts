@@ -7,6 +7,8 @@ import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager} f
 
 import {Trashcan} from '../_interfaces/trashcan.model';
 import {LogService} from '../_services/log.service';
+import {Subscription} from 'rxjs/Rx';
+import {Area} from '../_interfaces/area.model';
 
 @Component({
   selector: 'app-route',
@@ -20,8 +22,9 @@ export class RouteComponent implements OnInit, OnDestroy {
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
-  sub: any;
-  areas: any;
+  sub: Subscription;
+  dataSub: Subscription;
+  areas: Area[];
 
   fillColor = 'red';
   fillOpacity = 0.2;
@@ -41,7 +44,7 @@ export class RouteComponent implements OnInit, OnDestroy {
 
     this.sub = this.dataService.getTrashcanAreas()
       .subscribe(
-        areas => {
+        (areas: Area[] ) => {
           this.areas = areas;
           const allAreaIDs = [];
 
@@ -63,11 +66,11 @@ export class RouteComponent implements OnInit, OnDestroy {
   }
 
   processRoutes(allAreaIDs, callback) {
-    this.dataService.getTrashcansRoute(allAreaIDs)
+    this.dataSub = this.dataService.getTrashcansRoute(allAreaIDs)
       .subscribe(
         routeCollection => {
           routeCollection.forEach((routeObject, index) => {
-            console.log("routeobject", routeObject);
+            console.log('routeobject', routeObject);
             this.routes.push([]);
             const routeIndex = index;
 
@@ -77,7 +80,7 @@ export class RouteComponent implements OnInit, OnDestroy {
               longitude: routeObject['route'][0].long
             };
 
-            console.log("origin", this.routes[routeIndex].origin);
+            console.log('origin', this.routes[routeIndex].origin);
             this.routes[routeIndex].destination = {
               latitude: routeObject['route'][routeObject['route'].length - 1].latt,
               longitude: routeObject['route'][routeObject['route'].length - 1].long
@@ -108,7 +111,7 @@ export class RouteComponent implements OnInit, OnDestroy {
 
   processTrashcans() {
     // Alle prullenbakken voor op de kaart
-    this.dataService.getTrashcans()
+    this.dataSub = this.dataService.getTrashcans()
       .subscribe(
         (trashcans: Trashcan[]) => {
           this.trashcans = trashcans;
@@ -129,7 +132,7 @@ export class RouteComponent implements OnInit, OnDestroy {
   }
 
   // Geeft een CSS kleur terug op basis van het vullings percentage
-  calculateStatus(percentage) {
+  calculateStatus(percentage: number) {
     if (percentage < 40) {
       return './../assets/images/green-trashcan.png';
     } else if (percentage > 40 && percentage < 70) {
@@ -141,5 +144,6 @@ export class RouteComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.dataSub.unsubscribe();
   }
 }

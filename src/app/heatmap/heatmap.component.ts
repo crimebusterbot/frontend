@@ -1,7 +1,8 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
 import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper} from '@agm/core';
 import {LogService} from '../_services/log.service';
+import {Subscription} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-heatmap',
@@ -10,12 +11,12 @@ import {LogService} from '../_services/log.service';
   providers: [InfoWindowManager, GoogleMapsAPIWrapper]
 })
 
-export class HeatmapComponent implements OnInit {
+export class HeatmapComponent implements OnInit, OnDestroy {
 
   latlngBounds;
   loading = false;
   heatmapPoints: any = [];
-  sub: any;
+  sub: Subscription;
   zoom = 20;
 
   constructor(private dataService: DataService,
@@ -44,5 +45,9 @@ export class HeatmapComponent implements OnInit {
           this.loading = false;
         }
       );
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 }

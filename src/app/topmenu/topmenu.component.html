@@ -1,14 +1,6 @@
 <div class="topmenu-container">
   <!-- De desktop header -->
   <header class="desktop">
-    <div class="account">
-      <p>
-        T. Rashman
-      </p>
-
-      <img src="./../assets/images/profile-picture.jpg" alt="Profile Picture" width="40">
-    </div>
-
     <a routerLink="/map" class="logout">
       <p>Log out</p>
       <i class="fa fa-sign-out"></i>
@@ -42,14 +34,6 @@
     <p>Close menu</p>
   </a>
 
-  <div class="account">
-    <img src="./../assets/images/profile-picture.jpg" alt="Profile Picture" width="50">
-
-    <p>
-      T. Rashman
-    </p>
-  </div>
-
   <div class="menu">
     <a class="menu-item" routerLink="/map" routerLinkActive="active">
       <span class="menu-item-content">
@@ -77,6 +61,13 @@
         <i class="fa fa-area-chart"></i>
         <span>Analytics</span>
       </span>
+    </a>
+
+    <a class="menu-item" routerLink="/routesteps" routerLinkActive="active">
+        <span class="menu-item-content">
+          <i class="fa fa-map-o"></i>
+          <span class="menu-button-text">Personal Route</span>
+        </span>
     </a>
   </div>
 </div>

@@ -69,7 +69,6 @@ export class HumidityOverTimeComponent implements OnInit, OnDestroy {
   }
 
   setRange(timePeriod) {
-
     this.lineChartData[0].data = [];
     this.lineChartLabels = [];
 

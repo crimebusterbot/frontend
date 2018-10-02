@@ -1,6 +1,10 @@
+<div class="map-information" *ngIf="loading">
+  <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+  <p>Loading data for map...</p>
+</div>
+
 <agm-map [zoom]="zoom" [fitBounds]="latlngBounds" *ngIf="!loading && trashcans.length > 0" >
   <agm-marker *ngFor="let trashcan of trashcans" [iconUrl]="calculateStatus(trashcan.filled_up)" [latitude]="trashcan.lat" [longitude]="trashcan.long">
-
 
     <agm-polygon *ngFor="let area of areaData" [paths]="area.area" [fillOpacity]="fillOpacity" [fillColor]="fillColor" [strokeColor]="strokeColor" [strokeOpacity]="strokeOpacity"></agm-polygon>
 
@@ -22,9 +26,4 @@
 
 <div class="map-information" *ngIf="!loading && trashcans.length === 0">
   <p>No trashcans found.</p>
-</div>
-
-<div class="map-information" *ngIf="loading">
-  <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
-  <p>Loading data for map...</p>
 </div>

@@ -3,6 +3,7 @@ import {DataService} from '../../_services/data.service';
 import {DatePipe} from '@angular/common';
 import {LogService} from '../../_services/log.service';
 import {RangeService} from '../../_services/range.service';
+import {Subscription} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-trashovertime',
@@ -12,7 +13,7 @@ import {RangeService} from '../../_services/range.service';
 })
 export class TrashOverTimeComponent implements OnInit, OnDestroy {
   loading: boolean;
-  sub: any;
+  sub: Subscription;
   active: string;
 
   begin: any;

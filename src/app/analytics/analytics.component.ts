@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs/Rx';
 
 @Component({
   selector: 'app-analytics',
@@ -9,7 +10,7 @@ import {ActivatedRoute} from '@angular/router';
 
 export class AnalyticsComponent implements OnInit, OnDestroy {
   id: number;
-  sub: any;
+  sub: Subscription;
 
   constructor(private route: ActivatedRoute) {}
 

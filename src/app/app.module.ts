@@ -35,6 +35,8 @@ import {TrashcanStatusBarComponent} from './charts/trashcanstatus-bar/trashcanst
 import { HeatmapComponent } from './heatmap/heatmap.component';
 import { RoutestepsComponent } from './routesteps/routesteps.component';
 import { RoutemapComponent } from './routemap/routemap.component';
+import { LoginComponent } from './login/login.component';
+import { LoggedInComponent } from './logged-in/logged-in.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { RoutemapComponent } from './routemap/routemap.component';
     HeatmapComponent,
     RoutestepsComponent,
     RoutemapComponent,
-    ReadableTimePipe
+    ReadableTimePipe,
+    LoginComponent,
+    LoggedInComponent
 
   ],
   imports: [

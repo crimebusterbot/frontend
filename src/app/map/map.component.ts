@@ -5,6 +5,8 @@ import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper, MarkerManager} f
 
 import {Trashcan} from '../_interfaces/trashcan.model';
 import {LogService} from '../_services/log.service';
+import {Subscription} from 'rxjs/Rx';
+import {Area} from '../_interfaces/area.model';
 
 @Component({
   selector: 'app-map',
@@ -18,14 +20,15 @@ export class MapComponent implements OnInit, OnDestroy {
   latlngBounds; // Object waarmee het centrum van het scherm berekend wordt.
   zoom = 20; // Zoom niveau voor de kaart.
   trashcans: Trashcan[] = [];
-  sub: any;
+  sub: Subscription;
+  dataSub: Subscription;
 
   fillColor = 'red';
   fillOpacity = 0.02;
   strokeColor = 'red';
   strokeOpacity = 0.03;
 
-  areaData: any;
+  areaData: Area[];
 
   constructor(private dataService: DataService,
               private mapsAPILoader: MapsAPILoader,
@@ -54,9 +57,9 @@ export class MapComponent implements OnInit, OnDestroy {
       );
 
     // We halen de coordinaten van de areas op
-    this.dataService.getTrashcanAreas()
+    this.dataSub = this.dataService.getTrashcanAreas()
       .subscribe(
-        areaData => {
+        (areaData: Area[]) => {
           this.areaData = areaData;
 
           this.loading = false;
@@ -65,7 +68,7 @@ export class MapComponent implements OnInit, OnDestroy {
   }
 
   // Geeft een CSS kleur terug op basis van het vullings percentage
-  calculateStatus(percentage) {
+  calculateStatus(percentage: number) {
     if (percentage < 40) {
       return './../assets/images/green-trashcan.png';
     } else if (percentage > 40 && percentage < 70) {
@@ -77,5 +80,6 @@ export class MapComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+    this.dataSub.unsubscribe();
   }
 }
