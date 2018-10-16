@@ -3,6 +3,7 @@ import {DataService} from '../_services/data.service';
 import {MapsAPILoader, InfoWindowManager, GoogleMapsAPIWrapper} from '@agm/core';
 import {LogService} from '../_services/log.service';
 import {Subscription} from 'rxjs/Rx';
+import {Point} from '../_interfaces/heatmap.model';
 
 @Component({
   selector: 'app-heatmap',
@@ -15,7 +16,7 @@ export class HeatmapComponent implements OnInit, OnDestroy {
 
   latlngBounds;
   loading = false;
-  heatmapPoints: any = [];
+  heatmapPoints: Point[] = [];
   sub: Subscription;
   zoom = 20;
 
