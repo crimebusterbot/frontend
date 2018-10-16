@@ -23,7 +23,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {"input": "src/assets/js/chart.min.js", "lazy": true}
+            ]
           },
           "configurations": {
             "production": {

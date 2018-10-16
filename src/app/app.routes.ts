@@ -15,11 +15,11 @@ export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoggedInComponent, children: [
       {path: 'map', component: MapComponent},
+      {path: 'map/:id', component: DetailsComponent},
       {path: 'route', component: RouteComponent},
       {path: 'analytics', component: AnalyticsComponent},
       {path: 'heatmap', component: HeatmapComponent},
       {path: 'routesteps', component: RoutestepsComponent},
-      {path: 'map/:id', component: DetailsComponent},
       {path: '**', component: MapComponent}
     ]},
   {path: '**', component: LoggedInComponent}
