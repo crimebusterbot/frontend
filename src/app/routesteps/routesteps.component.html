@@ -1,26 +1,10 @@
-<!--
-<div *ngFor="let mytrash of this.coordinates" class="panel panel-default message">
-    <div class="panel-body message-body">
-      <div class="message-image-block">
-        <div class="message-image">
-          <img src="https://maps.googleapis.com/maps/api/staticmap?center={{mytrash.startLat}},{{mytrash.startLng}}&path=color:0xff0000ff|weight:5|{{mytrash.startLat}},{{mytrash.startLng}}|{{mytrash.endLat}},{{mytrash.endLng}}&zoom=15&size=125x125&key={{googleAPIKey}}" alt="Kaart">
-        </div>
-      </div>
-</div>
-
-<div *ngFor="let mytrash of this.coordinates" class="knoppen">
-  <button type="button" id="but">{{mytrash.letter}}</button>
-</div>
- -->
 <div class="content">
-
-
-
-     <div class="deskt">
+   <div class="deskt">
        <div *ngFor="let mytrash of this.coordinates">
          <a class="range-button" [class.range-button2]="mytrash.letter == routeSteps.letter" (click)=select(mytrash)>
            <p *ngIf="mytrash.letter">{{mytrash.letter}}</p>
          </a>
+
          <div class="deskmobile" *ngIf="routeSteps == mytrash && showmap">
              <app-routemap [info]="routeSteps" [zoom]="19"></app-routemap>
          </div>
@@ -30,7 +14,4 @@
     <div class="desk">
         <app-routemap *ngIf="showmap" [info]="routeSteps" [zoom]="17"></app-routemap>
     </div>
-
-
-
 </div>

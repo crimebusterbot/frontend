@@ -24,9 +24,9 @@ export class MapComponent implements OnInit, OnDestroy {
   dataSub: Subscription;
 
   fillColor = 'red';
-  fillOpacity = 0.02;
+  fillOpacity = 0.2;
   strokeColor = 'red';
-  strokeOpacity = 0.03;
+  strokeOpacity = 0.3;
 
   areaData: Area[];
 

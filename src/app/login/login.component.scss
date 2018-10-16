@@ -46,6 +46,10 @@
       font-family: 'Open Sans', sans-serif;
       cursor: pointer;
       font-weight: 700;
+
+      &:hover {
+        background: linear-gradient(45deg, #f4f4f4, #ececec);
+      }
     }
 
     .error {
