@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "smarttrashcan": {
+    "webshopchecker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "smarttrashcan:build"
+            "browserTarget": "webshopchecker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "smarttrashcan:build:production"
+              "browserTarget": "webshopchecker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "smarttrashcan:build"
+            "browserTarget": "webshopchecker:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "smarttrashcan-e2e": {
+    "webshopchecker-e2e": {
       "root": "e2e",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -104,7 +104,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "smarttrashcan:serve"
+            "devServerTarget": "webshopchecker:serve"
           }
         },
         "lint": {
@@ -121,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "smarttrashcan",
+  "defaultProject": "webshopchecker",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

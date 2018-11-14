@@ -1,0 +1,43 @@
+<div class="container" [ngClass]="{'top': top}">
+  <div class="website-input">
+    <h1>Check website</h1>
+
+    <div class="form">
+      <input type="url" placeholder="URL of a website" #url>
+      <button (click)="checkWebsite(url.value)">Check</button>
+    </div>
+
+    <div class="error" *ngIf="error">
+      <p>We may need a URL here </p>
+    </div>
+  </div>
+
+  <div class="loading" *ngIf="loading">
+    <h3>{{message[currentMessage]}}</h3>
+    <div class="loader-icon">
+      <img src="../../assets/images/grid.svg" alt="Loading">
+    </div>
+  </div>
+
+  <div class="results" *ngIf="results">
+    <div class="topper">
+      <h1>Results</h1>
+    </div>
+
+    <div class="data">
+      <div class="left">
+        <h3>Score</h3>
+        <ul>
+          <li>Fake: {{results.score.fake}}</li>
+          <li>Good: {{results.score.good}}</li>
+          <li>Normal: {{results.score.normal}}</li>
+        </ul>
+      </div>
+
+      <div class="right">
+        <h3>Screenshot</h3>
+        <img src="{{results.screenshot}}" alt="">
+      </div>
+    </div>
+  </div>
+</div>

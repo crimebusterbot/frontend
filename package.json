@@ -1,6 +1,6 @@
 {
-  "name": "smarttrashcan",
-  "version": "0.0.0",
+  "name": "webshopchecker",
+  "version": "1.0.0",
   "license": "MIT",
   "engines": {},
   "scripts": {
@@ -14,9 +14,8 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.3",
     "@angular/animations": "6.1.7",
-    "@angular/cli": "^6.2.1",
+    "@angular/cli": "^7.0.5",
     "@angular/common": "6.1.7",
     "@angular/compiler": "6.1.7",
     "@angular/compiler-cli": "6.1.7",

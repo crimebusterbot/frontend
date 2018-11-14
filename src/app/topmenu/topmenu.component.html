@@ -9,12 +9,12 @@
 
   <!-- De mobiele header -->
   <header class="mobile">
-    <a routerLink="/map" class="logo">
-      <img src="./../assets/images/smart-trashcan-logo.svg" alt="Smart Trashcan" width="50">
+    <a routerLink="/check" class="logo">
+      <img src="./../assets/images/icon-small-svg.svg" alt="Smart Trashcan" width="50">
     </a>
 
     <p class="sub-title">
-      trash management
+      webshop checker admin
     </p>
 
     <a class="menu" (click)="openNavigation()">
@@ -35,39 +35,11 @@
   </a>
 
   <div class="menu">
-    <a class="menu-item" routerLink="/map" routerLinkActive="active">
+    <a class="menu-item" routerLink="/check" routerLinkActive="active">
       <span class="menu-item-content">
-        <i class="fa fa-map-o"></i>
-        <span>Map</span>
+        <i class="fa fa-check-circle"></i>
+        <span>Check Website</span>
       </span>
-    </a>
-
-    <a class="menu-item" routerLink="/heatmap" routerLinkActive="active">
-      <span class="menu-item-content">
-        <i class="fa fa-thermometer-half" aria-hidden="true"></i>
-        <span class="menu-button-text">Heatmap</span>
-      </span>
-    </a>
-
-    <a class="menu-item" routerLink="/route" routerLinkActive="active">
-      <span class="menu-item-content">
-        <i class="fa fa-map-marker"></i>
-        <span>All Routes</span>
-      </span>
-    </a>
-
-    <a class="menu-item" routerLink="/analytics" routerLinkActive="active">
-      <span class="menu-item-content">
-        <i class="fa fa-area-chart"></i>
-        <span>Analytics</span>
-      </span>
-    </a>
-
-    <a class="menu-item" routerLink="/routesteps" routerLinkActive="active">
-        <span class="menu-item-content">
-          <i class="fa fa-map-o"></i>
-          <span class="menu-button-text">Personal Route</span>
-        </span>
     </a>
   </div>
 </div>
