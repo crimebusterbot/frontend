@@ -2,21 +2,23 @@
   <div class="login">
 
     <div class="logo">
-      <img src="./../assets/images/icon-svg.svg" alt="Smart Trashcan" width="125">
+      <img src="./../assets/images/icon-svg.svg" alt="Webshop Checker" width="125">
 
       <p class="sub-title">Log In</p>
     </div>
 
-    <div class="username">
-      <input type="text" placeholder="Username">
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="username">
+        <input type="text" placeholder="Username" formControlName="username">
+      </div>
 
-    <div class="password">
-      <input type="password" placeholder="Password">
-    </div>
+      <div class="password">
+        <input type="password" placeholder="Password" formControlName="password">
+      </div>
 
-    <p class="error">Combination between this username and password was not found.</p>
+      <p class="error" *ngIf="error">{{error}}</p>
 
-    <button routerLink="/check">Log In</button>
+      <input type="submit" class="button" value="Log In" [disabled]="loginForm.invalid">
+    </form>
   </div>
 </div>

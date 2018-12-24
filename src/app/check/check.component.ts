@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
 })
 export class CheckComponent implements OnInit {
   public error = false;
-  public top = false;
   public results: object;
   public loading = false;
   public currentMessage: number;
@@ -41,19 +40,21 @@ export class CheckComponent implements OnInit {
   ngOnInit() {}
 
   checkWebsite(url: string) {
-    this.top = true;
+    this.error = false;
+    this.results = null;
     this.loading = true;
     this.showMessages();
 
     this.dataService.postWebsite(url).subscribe(
       data => {
-        console.log(data);
         this.loading = false;
         this.stopMessages();
         this.results = data;
       },
       error => {
-        console.log(error);
+        this.loading = false;
+        this.stopMessages();
+        this.error = true;
       }
     );
   }
