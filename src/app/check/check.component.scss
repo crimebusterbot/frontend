@@ -87,6 +87,21 @@
     flex-direction: column;
     width: 100%;
 
+    .meta span {
+      padding: 3px 10px;
+      color: white;
+      border-radius: 2px;
+      font-size: 12px;
+    }
+
+    .new {
+      background-color: green;
+    }
+
+    .existing {
+      background-color: orange;
+    }
+
     .data {
       width: 100%;
       display: flex;

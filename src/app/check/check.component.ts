@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class CheckComponent implements OnInit {
   public error = false;
-  public results: object;
+  public results: any;
   public loading = false;
   public currentMessage: number;
   private interval;

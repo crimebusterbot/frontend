@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Observable } from 'rxjs/Observable';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/map';
 import {CanActivateChild, Router} from '@angular/router';
 
@@ -28,7 +28,7 @@ export class AuthenticationService implements CanActivateChild {
     };
 
     //noinspection TypeScriptUnresolvedFunction
-    return this.http.post('https://central-api.api.webshop-checker.nl/v1/user/auth', JSON.stringify({ username: username, password: password }), options)
+    return this.http.post(`${environment.apiUrl}/v1/user/auth`, JSON.stringify({ username: username, password: password }), options)
       .map((response: any) => {
         // login successful if there's a jwt token in the response
 
