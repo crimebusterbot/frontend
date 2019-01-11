@@ -4,16 +4,18 @@
     <div class="logo">
       <img src="./../assets/images/icon-svg.svg" alt="Webshop Checker" width="125">
 
-      <p class="sub-title">Log In</p>
+      <p class="sub-title">LOGIN</p>
     </div>
 
     <form [formGroup]="loginForm" (ngSubmit)="login()">
       <div class="username">
-        <input type="text" placeholder="Username" formControlName="username">
+        <label for="username">USERNAME</label>
+        <input id="username" type="text" placeholder="username" formControlName="username">
       </div>
 
       <div class="password">
-        <input type="password" placeholder="Password" formControlName="password">
+        <label for="password">PASSWORD</label>
+        <input id="password" type="password" placeholder="password" formControlName="password">
       </div>
 
       <p class="error" *ngIf="error">{{error}}</p>

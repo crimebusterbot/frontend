@@ -2,26 +2,32 @@
   <div class="website-input">
     <h1>Check website</h1>
 
-    <div class="form">
-      <input type="url" placeholder="URL of a website" #url>
-      <button (click)="checkWebsite(url.value)">Check</button>
-    </div>
+    <form>
+      <label for="url">WEBSITE TO CHECK</label>
+
+      <div class="input-group">
+          <input id="url" type="url" placeholder="URL of a website" #url>
+          <button [disabled]="loading" (click)="checkWebsite(url.value)">Check</button>
+      </div>
+    </form>
 
     <div class="error" *ngIf="error">
-      <p>Something went wrong.</p>
+      <p *ngIf="errorMessage">{{errorMessage}}</p>
+      <p *ngIf="!errorMessage">Something went wrong.</p>
     </div>
   </div>
 
   <div class="loading" *ngIf="loading">
-    <h3>{{message[currentMessage]}}</h3>
     <div class="loader-icon">
       <img src="../../assets/images/grid.svg" alt="Loading">
     </div>
+
+    <p>{{message[currentMessage]}}</p>
   </div>
 
   <div class="results" *ngIf="results">
     <div class="topper">
-      <h1>Results</h1>
+      <h2>Results</h2>
     </div>
 
     <div class="meta">

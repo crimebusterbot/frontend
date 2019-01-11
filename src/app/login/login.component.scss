@@ -1,14 +1,14 @@
 .container {
   align-items: center;
   justify-content: center;
-  background-color: #f7f7f7;
 
   .login {
-    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
-    padding: 20px;
+    padding: 30px;
     display: flex;
     flex-direction: column;
     background-color: white;
+    border: 1px solid #EAEDF3;
+    border-radius: 4px;
 
     .logo {
       display: flex;
@@ -21,46 +21,61 @@
     .sub-title {
       align-self: center;
       margin: 20px 0 0 0;
-      color: #3b3b3b;
-      font-size: 20px;
+      color: #3E3F42;
+      font-size: 18px;
     }
 
     input {
-      height: 40px;
-      border: 1px solid #b7b7b7;
+      height: 38px;
+      border: 1px solid #E2E5ED;
       min-width: 300px;
       margin-top: 10px;
       border-radius: 4px;
-      padding: 5px;
+      padding: 0 5px;
       font-size: 16px;
+      color: #3E3F42;
+
+      &::placeholder {
+        color: #BCBCBC;
+      }
+    }
+
+    .username, .password {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      color: #9EA0A5;
+      margin-top: 10px;
+      font-size: 12px;
     }
 
     input[type='submit'].button {
-      background-color: #e2e2e2;
-      color: #3b3b3b;
+      background: linear-gradient(45deg, #34AA44, #38B249);
+      color: white;
       border-radius: 4px;
-      border: none;
+      border: #2D9C3C 1px solid;
       min-height: 50px;
       margin-top: 10px;
-      font-size: 16px;
-      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
       cursor: pointer;
       font-weight: 700;
       width: 100%;
 
       &:hover {
-        background: linear-gradient(45deg, #f4f4f4, #ececec);
+        background: linear-gradient(45deg, darken(#34AA44, 5%), darken(#38B249, 5%));
       }
 
       &:disabled {
-        background: linear-gradient(45deg, #fcfcfc, #f6f6f6);
-        color: #c9c9c9;
+        background: linear-gradient(45deg, lighten(#34AA44, 50%), lighten(#38B249, 50%));
+        border: lighten(#2D9C3C, 50%) 1px solid;
       }
     }
 
     .error {
       width: 100%;
-      color: #cc2626;
+      color: #E6492D;
       max-width: 300px;
       margin: 20px 0 10px 0;
     }

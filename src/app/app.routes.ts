@@ -6,10 +6,12 @@ import {LoggedInComponent} from './logged-in/logged-in.component';
 import {CheckComponent} from './check/check.component';
 
 import { AuthenticationService } from './_services/auth.service';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoggedInComponent, canActivateChild: [AuthenticationService], children: [
+      {path: 'dashboard', component: DashboardComponent},
       {path: 'check', component: CheckComponent},
       {path: '**', redirectTo: '/check'}
     ]},

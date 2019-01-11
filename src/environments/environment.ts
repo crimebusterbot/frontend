@@ -6,4 +6,5 @@
 export const environment = {
   production: false,
   apiUrl: 'http://localhost:8081'
+  // apiUrl: 'https://central-api.api.webshop-checker.nl'
 };

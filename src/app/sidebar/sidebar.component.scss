@@ -1,17 +1,16 @@
-@import "../../assets/scss/_variables";
-
 aside {
   height: 100%;
   width: 20%; /* Omdat het een fixed element is moet je weer het juiste percentage meegeven. */
   position: fixed;
   top: 0;
   z-index: 9;
+  background-color: white;
 }
 
 .sidebar-container {
   display: flex;
   flex-direction: column;
-  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  border-right: 1px solid #EAEDF3;
   height: 100%;
   width: 100%;
   z-index: 9;
@@ -26,50 +25,66 @@ aside {
   .sub-title {
     align-self: center;
     margin: 0;
-    color: #3b3b3b;
+    color: #3E3F42;
+    font-weight: 500;
     padding: 10px;
   }
 }
 
 .menu {
   margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .menu-item {
-    height: 100px;
-    width: 100%;
+.menu-title {
+  margin-bottom: 10px;
+  margin-left: 30px;
+  color: #9EA0A5;
+  font-size: 12px;
+}
+
+.menu-item {
+  height: 46px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  justify-content: center;
+  border-left: 3px solid transparent;
+
+  &.active {
+    background-color: #F6F9FD;
+    border-left: 3px solid #1665D8;
+
+    .menu-item-content i {
+      color: #1665D8;
+    }
+  }
+
+  &:hover {
+    background: #E2E5ED;
+  }
+}
+
+.menu-item-content {
+  padding-left: 30px;
+  display: flex;
+  color: #3b3b3b;
+  box-sizing: border-box;
+  align-items: center;
+
+  .menu-button-text {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 500;
+    padding-left: 20px;
+  }
+
+  i {
+    font-size: 20px;
+    min-width: 25px;
     display: flex;
-    flex-direction: column;
-    text-decoration: none;
     justify-content: center;
-
-    &.active {
-      background-color: $button-color;
-    }
-
-    &:hover {
-      background: linear-gradient(45deg, #f4f4f4, #ececec);
-    }
-
-    .menu-item-content {
-      align-self: center;
-      display: flex;
-      flex-direction: column;
-      color: #3b3b3b;
-
-      span, i {
-        align-self: center;
-      }
-
-      .menu-button-text {
-        font-size: 20px;
-        margin: 0;
-        padding-top: 10px;
-        font-weight: 600;
-      }
-
-      i {
-        font-size: 22px;
-      }
-    }
+    color: #9EA0A5;
   }
 }

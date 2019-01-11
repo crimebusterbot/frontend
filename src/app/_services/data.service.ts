@@ -11,4 +11,8 @@ export class DataService {
   postWebsite(website: string): Observable<any> {
     return this.httpClient.post(`${environment.apiUrl}/v1/webshop/check`, {url: website});
   }
+
+  getTotal(): Observable<any> {
+    return this.httpClient.get(`${environment.apiUrl}/v1/data/total`);
+  }
 }

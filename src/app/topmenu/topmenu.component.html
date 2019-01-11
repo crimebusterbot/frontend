@@ -2,8 +2,8 @@
   <!-- De desktop header -->
   <header class="desktop">
     <a routerLink="/login" class="logout">
-      <p>Log out</p>
       <i class="fa fa-sign-out"></i>
+      <p>Log out</p>
     </a>
   </header>
 
@@ -35,10 +35,17 @@
   </a>
 
   <div class="menu">
+    <a class="menu-item" routerLink="/dashboard" routerLinkActive="active">
+      <span class="menu-item-content">
+        <i class="fa fa-area-chart"></i>
+        <span class="menu-button-text">Dashboard</span>
+      </span>
+    </a>
+
     <a class="menu-item" routerLink="/check" routerLinkActive="active">
       <span class="menu-item-content">
         <i class="fa fa-check-circle"></i>
-        <span>Check Website</span>
+        <span class="menu-button-text">Check Website</span>
       </span>
     </a>
   </div>

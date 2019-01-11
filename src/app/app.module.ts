@@ -22,12 +22,14 @@ import { CheckComponent } from './check/check.component';
 import {AuthenticationService} from './_services/auth.service';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {TokenInterceptor} from './_services/token.service';
+import {DashboardComponent} from './dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
     TopmenuComponent,
+    DashboardComponent,
     ReadableTimePipe,
     LoginComponent,
     LoggedInComponent,
