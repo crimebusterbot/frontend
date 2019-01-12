@@ -6,6 +6,39 @@
   box-sizing: border-box;
 }
 
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.label {
+  color: #9EA0A5;
+  font-size: 12px;
+}
+
+.main {
+  font-size: 26px;
+  color: #3E3F42;
+  margin: 0;
+  padding-top: 10px;
+}
+
+.third {
+  width: 33%;
+}
+
+.border_left {
+  border-left: 3px solid #1461D2;
+}
+
+.border_red {
+  border-left: 3px solid #E6492D;
+}
+
+.border_green {
+  border-left: 3px solid #2D9C3C;
+}
+
 .total {
   display: flex;
   flex-direction: column;
