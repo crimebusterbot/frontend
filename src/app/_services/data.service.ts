@@ -15,4 +15,8 @@ export class DataService {
   getTotal(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/v1/data/total`);
   }
+
+  getTotalOverTime(): Observable<any> {
+    return this.httpClient.get(`${environment.apiUrl}/v1/data/graph`);
+  }
 }
