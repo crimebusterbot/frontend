@@ -33,9 +33,10 @@
     <div class="meta">
       <span *ngIf="results.new" class="new">new</span>
       <span *ngIf="!results.new" class="existing">existing</span>
+      <span *ngIf="results.trusted" class="new">trusted webshop</span>
     </div>
 
-    <div class="data">
+    <div class="data" *ngIf="!results.trusted">
       <div class="left">
         <h3>Score</h3>
         <ul>
@@ -43,6 +44,11 @@
           <li>Good: {{results.score.good}}</li>
           <li>Normal: {{results.score.normal}}</li>
         </ul>
+
+        <!--<h3>Certificate</h3>
+        <ul>
+          <li>Valid: {{results.cert.isvalid}}</li>
+        </ul>-->
       </div>
 
       <div class="right">

@@ -96,6 +96,12 @@ body {
   flex-direction: column;
 }
 
+h1 {
+  margin: 0;
+  font-weight: 500;
+  font-size: 18px;
+}
+
 .card {
   background: white;
   margin: 15px;
@@ -106,6 +112,80 @@ body {
   border: 1px solid #EAEDF3;
   border-radius: 4px;
   padding: 20px;
+}
+
+
+input {
+  height: 38px;
+  border: 1px solid #E2E5ED;
+  border-radius: 4px;
+  padding: 0 5px;
+  font-size: 14px;
+  color: #3E3F42;
+  width: 100%;
+  margin-right: 10px;
+  box-sizing: border-box;
+
+  &::placeholder {
+    color: #BCBCBC;
+  }
+}
+
+.error {
+  background-color: rgba(255, 8, 0, 0.58);
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.success {
+  background-color: rgba(18, 150, 46, 0.58);
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+label {
+  color: #9EA0A5;
+  margin-top: 10px;
+  font-size: 12px;
+  display: flex;
+  text-transform: uppercase;
+}
+
+button {
+  height: 38px;
+  box-sizing: border-box;
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  padding: 0 10px;
+  text-decoration: none;
+  background-image: linear-gradient(0deg, #1665D8 0%, #1F6FE5 100%);
+  border: 1px solid #1461D2;
+  box-shadow: 0 1px 1px 0 rgba(22,29,37,0.10), inset 0 2px 0 0 rgba(255,255,255,0.06);
+  border-radius: 4px;
+  margin-left: auto;
+  font-family: 'Roboto', sans-serif;
+
+  &:hover {
+    background: darken(#1461D2, 5%);
+    cursor: pointer;
+  }
+
+  &:disabled {
+    background: grey;
+    color: white;
+    border: darkgray;
+  }
 }
 
 @media only screen and (max-width: 767px) {

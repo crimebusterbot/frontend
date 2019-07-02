@@ -1,0 +1,80 @@
+<div class="container">
+
+<div class="row">
+    <div class="add-webshop">
+      <h1>Add New Trusted Webshop</h1>
+
+      <div *ngIf="error" class="error">{{errorMessage}}</div>
+      <div *ngIf="success" class="success">{{result.message}}</div>
+
+      <form [formGroup]="addForm" (ngSubmit)="addGoodWebshop()">
+        <div class="form-item">
+          <label for="url">URL*</label>
+          <input type="url" name="url" formControlName="url" placeholder="URL">
+        </div>
+
+        <div class="form-item">
+            <label for="email">Email address</label>
+            <input type="text" name="email" formControlName="email" placeholder="Email address">
+        </div>
+
+        <div class="form-item">
+            <label for="telefoonNummer">Telefoon nummer</label>
+            <input type="text" name="telefoonNummer" formControlName="telefoonNummer" placeholder="Telefoon nummer">
+        </div>
+
+        <div class="form-item">
+            <label for="vestigingsAdres">Vestigingsadres</label>
+            <input type="text" name="vestigingsAdres" formControlName="vestigingsAdres" placeholder="Vestigingsadres">
+        </div>
+
+        <div class="form-item">
+            <label for="postAdres">Postadres</label>
+            <input type="text" name="postAdres" formControlName="postAdres" placeholder="Postadres">
+        </div>
+
+        <div class="form-item">
+            <label for="bedrijfsNaam">Bedrijfsnaam</label>
+            <input type="text" name="bedrijfsNaam" formControlName="bedrijfsNaam" placeholder="Bedrijfsnaam">
+        </div>
+
+        <div class="form-item">
+            <label for="kvkNummer">KVK Nummer</label>
+            <input type="text" name="kvkNummer" formControlName="kvkNummer" placeholder="KVK Nummer">
+        </div>
+
+        <div class="form-item">
+            <label for="btwNummer">BTW Nummer</label>
+            <input type="text" name="btwNummer" formControlName="btwNummer" placeholder="BTW Nummer">
+        </div>
+
+        <div class="form-item">
+            <label for="contactPersoon">Contact persoon</label>
+            <input type="text" name="contactPersoon" formControlName="contactPersoon" placeholder="Contact persoon">
+        </div>
+
+        <div class="form-item">
+            <label for="keurmerkNaam">Keurmerk Naam</label>
+            <input type="text" name="keurmerkNaam" formControlName="keurmerkNaam" placeholder="Keurmerk Naam">
+        </div>
+
+        <div class="form-item">
+            <label for="keurmerkLidSinds">Keurmerk lid Sinds</label>
+            <input type="text" name="keurmerkLidSinds" formControlName="keurmerkLidSinds" placeholder="Keurmerk lid sinds (YYYY-MM-DD)">
+        </div>
+
+        <div class="form-item">
+            <label for="categorie">Categorie omschrijving</label>
+            <input type="text" name="categorie" formControlName="categorie" placeholder="Categorie">
+        </div>
+
+        <div class="form-item">
+            <label for="naam">Naam</label>
+            <input type="text" name="naam" formControlName="naam" placeholder="Naam">
+        </div>
+
+        <button [disabled]="addForm.invalid">Add Webshop</button>
+      </form>      
+    </div>
+  </div>
+</div>

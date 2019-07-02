@@ -1,0 +1,29 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-webshop {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  margin: 15px;
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,0.04);
+  border: 1px solid #EAEDF3;
+  border-radius: 4px;
+}
+
+button {
+  margin-top: 10px;
+}

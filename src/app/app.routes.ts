@@ -7,13 +7,15 @@ import {CheckComponent} from './check/check.component';
 
 import { AuthenticationService } from './_services/auth.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
+import { AddGoodWebshopComponent } from './addGoodWebshop/add-good-webshop.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: '', component: LoggedInComponent, canActivateChild: [AuthenticationService], children: [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'check', component: CheckComponent},
-      {path: '**', redirectTo: '/check'}
+      {path: 'addwebshop', component: AddGoodWebshopComponent},
+      {path: '**', redirectTo: '/dashboard'}
     ]},
   {path: '**', component: LoggedInComponent}
 ];

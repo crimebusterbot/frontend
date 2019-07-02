@@ -14,12 +14,11 @@ export class CheckComponent implements OnInit {
   public loading = false;
   public currentMessage: number;
   private interval;
-
   public message = [
     'Scanning vertices',
     'Verifying target with FBI',
     'Filling out forms',
-    'Knocking on foreign looking doors',
+    'Whipping out dictionary',
     'Enhancing photos',
     'Grabbing creditcard',
     'Sending server disks to the lab',
@@ -33,7 +32,9 @@ export class CheckComponent implements OnInit {
     'Polishing imaginary police badge',
     'Interrogating pixels',
     'Browsing the dark web',
-    'Downloading donuts'
+    'Downloading donuts',
+    'Pinching screen',
+    'Asking Siri to take down fake webshops'
   ];
 
   constructor(private router: Router, private dataService: DataService) { }
