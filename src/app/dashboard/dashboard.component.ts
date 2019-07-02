@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../_services/data.service';
-import Chart from 'chart.js';
+import { Chart }  from 'chart.js';
 
 @Component({
   selector: 'app-dashboard',
@@ -32,7 +32,7 @@ export class DashboardComponent implements OnInit {
         const dataSetTemp = data.count.map(count => count.amount);
         const dataSet = dataSetTemp.reduce((a, x, i) => [...a, x + (a[i - 1] || 0)], []);
 
-        const ctx = document.getElementById('totalOverTime');
+        const ctx: any = document.getElementById('totalOverTime');
 
         const chart = new Chart(ctx, {
           type: 'line',
