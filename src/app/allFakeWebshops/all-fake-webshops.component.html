@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <div class="all-fake">
+      <h1>All fake webshops</h1>
+      <div class="item" *ngFor="let webshop of result">
+        <span class="score">
+          <p>{{webshop.fakeScore * 100 | number:'1.0-1'}}%</p>
+
+          </span>
+        <p>{{webshop.url}}</p>
+        <span class="checked">{{webshop.checked | date:'dd MMM (HH:mm)'}}</span>
+      </div>
+    </div>
+  </div>
+</div>

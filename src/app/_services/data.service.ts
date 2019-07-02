@@ -23,6 +23,10 @@ export class DataService {
   getTotalOverTime(): Observable<any> {
     return this.httpClient.get(`${environment.apiUrl}/v1/data/graph`);
   }
+
+  getAllFakeWebshops(): Observable<any> {
+    return this.httpClient.get(`${environment.apiUrl}/v1/data/fake`);
+  }
 }
 
 interface goodWebshop {

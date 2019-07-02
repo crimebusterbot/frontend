@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TokenInterceptor } from './_services/token.service';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { AddGoodWebshopComponent } from './addGoodWebshop/add-good-webshop.component';
+import { AllFakeWebshopsComponent } from './allFakeWebshops/all-fake-webshops.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AddGoodWebshopComponent } from './addGoodWebshop/add-good-webshop.compo
     LoginComponent,
     LoggedInComponent,
     CheckComponent,
-    AddGoodWebshopComponent
+    AddGoodWebshopComponent,
+    AllFakeWebshopsComponent
   ],
   imports: [
     BrowserModule,

@@ -8,6 +8,7 @@ import {CheckComponent} from './check/check.component';
 import { AuthenticationService } from './_services/auth.service';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import { AddGoodWebshopComponent } from './addGoodWebshop/add-good-webshop.component';
+import { AllFakeWebshopsComponent } from './allFakeWebshops/all-fake-webshops.component';
 
 export const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -15,6 +16,7 @@ export const routes: Routes = [
       {path: 'dashboard', component: DashboardComponent},
       {path: 'check', component: CheckComponent},
       {path: 'addwebshop', component: AddGoodWebshopComponent},
+      {path: 'allfake', component: AllFakeWebshopsComponent},
       {path: '**', redirectTo: '/dashboard'}
     ]},
   {path: '**', component: LoggedInComponent}
